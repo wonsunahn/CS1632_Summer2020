@@ -27,8 +27,19 @@ This course provides students with a broad understanding of modern software
 testing and quality assurance. Although it will cover testing theory, the
 emphasis is on providing practical skills in software testing currently used in
 industry. To that end, it will cover: manual and automated tests, test-driven
-development, performance testing, and understanding and developing a testing
-strategy.
+development, performance testing, and model checking.
+
+This lecture will use the _blended classroom_ learning model.  All lectures
+(except the guest lecture) will be pre-recorded and posted on Canvas.  It is
+your responsibility to keep up with the lectures according to the schedule on
+the [Syllabus](syllabus.md).  There will be 5 in-class exercises to apply
+what you learned during the lectures and to prepare you for the deliverables.
+
+You _are_ required to attend lecture days with in-class exercises and the guest
+lecture marked as \[Required class\](see [Syllabus](syllabus.md)).  And of course the days with the exams.
+
+You are _not_ required to attend lecture days with lecture Q&As or reviews
+marked as \[Optional class\].
 
 ## Grading
 
@@ -43,18 +54,15 @@ strategy.
   * Midterm 2 - 10%
 * Participation / TopHat Questions (5%)
 
-This lecture will use the _blended classroom_ learning model.  All lectures
-(except the guest lecture) will be pre-recorded and posted on Canvas.  It is
-your responsibility to keep up with the lectures according to the schedule on
-the [Syllabus](syllabus.md).  There will be 5 in-class exercises to apply
-what you learned during the lectures and to prepare you for the deliverables.
+Attendance will be taken on days with required classes using TopHat and will
+count towards your participation score.
 
-You _are_ required to attend lecture days with in-class exercises and the guest
-lecture (see [Syllabus](syllabus.md)).  And of course the days with the exams.
-Attendance will be taken on these days using TopHat and will count towards your
-participation score.  Exams will NOT be allowed to be made up except with a
-valid and verified excuse (generally medical - others are left to the
-discretion of the instructor).
+TopHat questions will be provided when the recorded lectures are released.
+They are expected to be completed during the given time frame (during the week
+the lectures are listed on the syllabus).
+
+Exams will NOT be allowed to be made up except with a valid and verified excuse
+(generally medical - others are left to the discretion of the instructor).
 
 The following grading scale will be used.  Note that I generally do _not_ round
 grades up.
@@ -122,22 +130,22 @@ several ways you can participate:
 
 1. Online (during a Microsoft Teams meeting)
 
-You can either unmute your mic and interject, or type a question on the
+    You can either unmute your mic and interject, or type a question on the
 chat window.
 
 2. Offline
 
-You can post a question on the "Lecture Q & A" thread on the Canvas Discussions
+    You can post a question on the "Lecture Q & A" thread on the Canvas Discussions
 board.  Individual threads for each deliverable will be created as they are
 released.
 
-If it is not a comment specific to lectures or deliverables but just a message
+    If it is not a comment specific to lectures or deliverables but just a message
 you wanted to broadcast to the entire class (e.g. "I'm looking for a project
 partner"), you can use Microsoft Teams.  Select the "Teams" menu item on the
 left and select the "CS 1632 Software Quality Assurance" team, then post the
 message on the "Posts" tab.
 
-You can also DM (direct message) me or another student in the class.  Again,
+    You can also DM (direct message) me or another student in the class.  Again,
 select the "Teams" menu and then "CS 1632 Software Quality Assurance" and then
 select the "..." context menu beside the "CS 1632 Software Quality Assurance"
 team name.  Please select the top-most item: "Manage Team".  There, you should
@@ -147,7 +155,7 @@ call with that individual.
 
 3. Email
 
-For most questions, you are encouraged to use one of the above methods, so that
+    For most questions, you are encouraged to use one of the above methods, so that
 your peers can participate and benefit from your questions.  For questions,
 that are specific to your deliverable submission, please use my email.  When
 you ask a question, please submit your source code to GradeScope so that I can
