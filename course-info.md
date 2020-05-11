@@ -43,16 +43,16 @@ marked as \[Optional class\].
 
 ## Grading
 
-* Projects (75%):
+* Projects (70%):
   * Deliverable 1 - 10%
   * Deliverable 2 - 15%
   * Deliverable 3 - 15%
   * Deliverable 4 - 10%
-  * Deliverable 5 - 25%
+  * Deliverable 5 - 20%
 * Midterms (20%):
   * Midterm 1 - 10%
   * Midterm 2 - 10%
-* Participation / TopHat Questions (5%)
+* Participation / TopHat Questions (10%)
 
 Attendance will be taken on days with required classes using TopHat and will
 count towards your participation score.
