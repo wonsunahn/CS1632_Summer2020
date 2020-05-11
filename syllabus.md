@@ -44,6 +44,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 * Listen to lectures:
   * Automated System Testing
+  
 
 ## WEEK 7 (Week of 22 JUN)
 
@@ -51,42 +52,36 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 * Listen to lectures:
   * Performance Testing (READING: AFIST, Chapter 19)
+  * Stochastic and Property-Based Testing (READING: AFIST, Chapter 18)
 
 ## WEEK 8 (Week of 29 JUN)
 
 * [Required Class] In-class Exercise 4: Performance Testing
 
 * Listen to lectures:
-  * Stochastic and Property-Based Testing (READING: AFIST, Chapter 18)
   * Static Analysis Part 1
-
-## WEEK 9 (Week of 6 JUL)
-
-* [Optional Class] Lecture Q & A
-
-* Listen to lectures:
   * Static Analysis Part 2
-  * Static Analysis Part 3
-
-## WEEK 10 (Week of 13 JUL)
+  
+## WEEK 9 (Week of 6 JUL)
 
 * [Required Class] In-class Exercise 5: Static Analysis
 
 * Listen to lectures:
+  * Static Analysis Part 3
   * Pairwise and Combinatorial Testing (READING: AFIST, Chapter 17)
+
+## WEEK 10 (Week of 13 JUL)
+
+* [Optional Class] Lecture Q & A
+
+* Listen to lectures:
   * Smoke and Exploratory Testing (READING: AFIST, Chapters 10-11)
+  * Security Testing (READING: AFIST, Chapter 20)
 
 ## WEEK 11 (Week of 20 JUL)
 
-* [Required Class] Guest Lecture (TBD)
-
-* Listen to lectures:
-  * Security Testing (READING: AFIST, Chapter 20)
+* [Required Class] Guest Lecture (TBD), Midterm 2 review
 
 ## WEEK 12 (Week of 27 JUL)
-
-* [Optional Class] Midterm 2 review
-
-## WEEK 13 (Week of 3 AUG)
 
 * [Required class] MIDTERM 2
