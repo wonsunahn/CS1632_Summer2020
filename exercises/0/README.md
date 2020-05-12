@@ -81,7 +81,7 @@ start by using the Desktop GUI version.  You can download it from:
 
     https://help.github.com/en/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
 
-You will need to go to the root of the course repository to get the clone link:
+    You will need to go to the root of the course repository to get the clone link:
 
     https://github.com/wonsunahn/CS1632_Summer2020
 
