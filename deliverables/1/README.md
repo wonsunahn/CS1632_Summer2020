@@ -50,7 +50,7 @@ came up with edge cases, etc.
 
 ON A NEW PAGE, a traceability matrix should be provided mapping the test cases
 with their associated requirements.  Remember that all requirements should map
-to AT LEAST ONE test case, and all test cases should map to EXACTLY ONE
+to AT LEAST ONE test case, and all test cases should map to AT LEAST ONE
 requirement.  
 
 ON A NEW PAGE, a list of the actual test cases should follow.  You may name
