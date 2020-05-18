@@ -41,6 +41,7 @@ TEST-INVALID-TIMES, TEST-LOW-NUM-TIMES, etc.).  For this exercise, please use a
 descriptive label.  Note that the INPUT VALUES and OUTPUT VALUES fields in the
 template are omitted because we are not doing method unit testing.
 
+Create a reasonable test plan based on the [requirements](requirements.md).
 Hint: Try to have a combination of explicit boundary values and implicit
 boundary values as well as interior values in your test cases.  As we learned,
 this is where most of the defects will reside!
@@ -131,11 +132,6 @@ The requirements are listed in the file requirements.md in this directory.
 
 ## Submission
 
-Note that the in-class exercise is not used for final grade calculation.
-However, an extra credit of 1 point out of 100 points for the entire course
-will be awarded to the group that finds the most number of defects in the
-program.  There can be multiple winners too if there is a tie!
-
 Please use the ReportTemplate.docx file provided in this directory to write
 your report.  If you don't have a .docx compatible word processor, that's
 perfectly fine as long as you follow the same organization.  A PDF version of
@@ -153,3 +149,55 @@ add his/her partner.  That way, the feedback will be accessible to both of you.
 
 When your exercise is marked as graded, you should find feedback written on
 your grade details.  Please use the feedback wisely when doing Deliverable 1!
+
+## Extra Credit
+
+Note that the in-class exercise is not used for final grade calculation.
+However, an extra credit of 1 point out of 100 points for the entire course
+will be awarded to the group that finds the most number of defects in the
+program.  There can be multiple winners too if there is a tie!
+
+Note: At below are some behaviors that are not defects.
+
+1. Bash behavior
+
+```
+$ java -jar GoatGoatCar.jar car goat 1000 \
+> 
+```
+... or ...
+```
+$ java -jar GoatGoatCar.jar car goat 1000 "
+> 
+```
+
+This is just normal bash behavior that allows user to enter multi-line
+commands.  In the first case, the newline was escaped (\) and in the second
+case, a multi-line string was started using the quote(") charater.  Other
+special characters recognized by bash is listed here:
+
+https://www.tldp.org/LDP/abs/html/special-chars.html
+
+2. Empty names or duplicate names
+
+```
+$ java -jar GoatGoatCar.jar "" "" 1000 4
+Thread 0: 250 iterations.
+Thread 1: 250 iterations.
+Thread 2: 250 iterations.
+Thread 3: 250 iterations.
+Calculating..
+
+
+Switch:
+ : 68.500%
+ : 31.500%
+-----------------------------
+Stay:
+ : 31.500%
+ : 68.500%
+```
+
+There is no requirement that the "good" and "bad" strings have to be unique, or
+they cannot be empty strings for that matter.  This is still behavior
+conformant with the requirements.
