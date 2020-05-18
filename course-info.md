@@ -17,6 +17,12 @@ Software Quality Assurance - Summer 2020
   * Hours: Thu 3:00 PM - 5:00 PM
   * ... or by appointment.
 
+**Grading TA Contact Information:**
+
+  * Thejaswi Duvvuru (thd23 at pitt dot edu)
+  * Primary mode of communication: "Regrade Request" on GradeScope
+  * ... or by appointment on Microsoft Teams.
+  
 **Class GitHub repo:** https://www.github.com/wonsunahn/CS1632_Summer2020
 
 **Required Texts:**
