@@ -19,7 +19,7 @@ Software Quality Assurance - Summer 2020
 
 **Grading TA Contact Information:**
 
-  * Thejaswi Duvvuru (thd23 at pitt dot edu)
+  * Musale, Pratik Uday (PRM73 at pitt dot edu)
   * Primary mode of communication: "Regrade Request" on GradeScope
   * ... or by appointment on Microsoft Teams.
   
