@@ -17,13 +17,14 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 * Listen to lectures:
   * Defects and Breaking Software (READING: AFIST, Chapters 9, 7)
-  * Automated and Manual Testing, Unit Testing Part 1 (READING: AFIST, Chapter 12-13)
+  * Automated and Manual Testing (READING: AFIST, Chapter 12)
 
 ## WEEK 3 (Week of 25 MAY)
   
 * [No Class] MEMORIAL DAY
 
 * Listen to lectures:
+  * Unit Testing Part 1 (READING: AFIST, Chapter 13)
   * Unit Testing Part 2 (READING: AFIST, Chapter 14)
 
 ## WEEK 4 (Week of 1 JUN)
