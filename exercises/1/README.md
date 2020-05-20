@@ -165,13 +165,13 @@ Note: At below are some behaviors that are not defects.
 $ java -jar GoatGoatCar.jar car goat 1000 \
 > 
 ```
-    ... or ...
+... or ...
 ```
 $ java -jar GoatGoatCar.jar car goat 1000 "
 > 
 ```
 
-    This is just normal bash behavior that allows user to enter multi-line
+This is just normal bash behavior that allows user to enter multi-line
 commands.  In the first case, the newline was escaped (\) and in the second
 case, a multi-line string was started using the quote(") charater.  Other
 special characters recognized by bash is listed here:
@@ -198,6 +198,6 @@ Stay:
  : 68.500%
 ```
 
-    There is no requirement that the "good" and "bad" strings have to be
+There is no requirement that the "good" and "bad" strings have to be
 unique, or they cannot be empty strings for that matter.  This is still
 behavior conformant with the requirements.
