@@ -7,11 +7,18 @@ import org.junit.Test;
 public class LinkedListTest {
 
 	LinkedList<Integer> ll;
+	Node<Integer>[] nodes;
 	
 	// Automatically called before every @Test method
 	@Before
 	public void setUp() throws Exception {
+		// Create LinkedList which we will be testing
 		ll = new LinkedList<Integer>();
+		// Create a bunch Nodes that will be used to test LinkedList
+		nodes = new Node[10];
+		for (int j = 0; j < 10; j++) {
+			nodes[j] = new Node<Integer>(new Integer(j));
+		}
 	}
 
 	// Automatically called after every @Test method
@@ -29,8 +36,8 @@ public class LinkedListTest {
 	// the first element
 	@Test
 	public void testZeroList() {
-		ll.clear();		
-		assertNull(ll.getFront());
+		LinkedList<Integer> ll0 = new LinkedList<Integer>();		
+		assertNull(ll0.getFront());
 	}
 
 	// Test that the .clear() methods works, by first adding an item, and then
@@ -38,7 +45,7 @@ public class LinkedListTest {
 	// the first element is null).
 	@Test
 	public void testClearedList() {
-		ll.addToFront(new Node<Integer>(new Integer(7)));
+		ll.addToFront(nodes[7]);
 		ll.clear();
 		assertNull(ll.getFront());
 	}
@@ -49,7 +56,7 @@ public class LinkedListTest {
 	@Test
 	public void testMultiList() {
 		for (int j=0; j < 10; j++) {
-			ll.addToFront(new Node<Integer>(new Integer(j)));
+			ll.addToFront(nodes[j]);
 		}
 		ll.clear();
 		assertNull(ll.getFront());
@@ -66,10 +73,7 @@ public class LinkedListTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testAddToTenItemLL() {
-		Node<Integer>[] nodes = new Node[10];
-		
 		for (int j = 0; j < 10; j++) {
-			nodes[j] = new Node<Integer>(new Integer(j));
 			ll.addToFront(nodes[j]);
 		}
 		
@@ -86,8 +90,8 @@ public class LinkedListTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testAddToOneItemLL() {
-		Node<Integer> existingNode = new Node<Integer>(new Integer(1));
-		Node<Integer> testNode = new Node<Integer>(new Integer(2));
+		Node<Integer> existingNode = nodes[1];
+		Node<Integer> testNode = nodes[2];
 		ll.addToFront(existingNode);
 		ll.addToFront(testNode);
 		assertSame(ll.getFront(), testNode);
@@ -124,7 +128,7 @@ public class LinkedListTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testDeleteFrontOneItem() {
-		ll.addToFront(new Node<Integer>(new Integer(1)));
+		ll.addToFront(nodes[1]);
 		ll.deleteFront();
 		assertEquals(ll.getFront(), null);
 	}
@@ -136,10 +140,7 @@ public class LinkedListTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testDeleteFrontMultipleItems() {
-		Node<Integer>[] nodes = new Node[10];
-		
 		for (int j = 0; j < 10; j++) {
-			nodes[j] = new Node<Integer>(new Integer(1));
 			ll.addToFront(nodes[j]);
 		}
 		

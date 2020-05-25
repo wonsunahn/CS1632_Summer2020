@@ -20,11 +20,19 @@ import org.mockito.*;
 public class LinkedListUnitTest {
 
 	LinkedList<Integer> ll;
+	Node<Integer>[] nodes;
 
 	// Automatically called before every @Test method
 	@Before
 	public void setUp() throws Exception {
+		// Create LinkedList which we will be testing
 		ll = new LinkedList<Integer>();
+		// Create a bunch mocked Nodes that will be used to test LinkedList
+		nodes = new Node[10];
+		for (int j = 0; j < 10; j++) {
+			nodes[j] = Mockito.mock(Node.class);
+			Mockito.when(nodes[j].getData()).thenReturn(j);
+		}
 	}
 
 	// Automatically called after every @Test method
@@ -41,8 +49,8 @@ public class LinkedListUnitTest {
 	// the first element
 	@Test
 	public void testZeroList() {
-		ll.clear();
-		assertNull(ll.getFront());
+		LinkedList<Integer> ll0 = new LinkedList<Integer>();		
+		assertNull(ll0.getFront());
 	}
 
 	// Test that the .clear() methods works, by first adding an item, and then
@@ -50,7 +58,7 @@ public class LinkedListUnitTest {
 	// the first element is null).
 	@Test
 	public void testClearedList() {
-		ll.addToFront(Mockito.mock(Node.class));
+		ll.addToFront(nodes[7]);
 		ll.clear();
 		assertNull(ll.getFront());
 	}
@@ -61,7 +69,7 @@ public class LinkedListUnitTest {
 	@Test
 	public void testMultiList() {
 		for (int j = 0; j < 10; j++) {
-			ll.addToFront(Mockito.mock(Node.class));
+			ll.addToFront(nodes[j]);
 		}
 		ll.clear();
 		assertNull(ll.getFront());
@@ -78,10 +86,7 @@ public class LinkedListUnitTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testAddToTenItemLL() {
-		Node<Integer>[] nodes = new Node[10];
-
 		for (int j = 0; j < 10; j++) {
-			nodes[j] = Mockito.mock(Node.class);
 			ll.addToFront(nodes[j]);
 		}
 
@@ -100,8 +105,8 @@ public class LinkedListUnitTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testAddToOneItemLL() {
-		Node<Integer> existingNode = Mockito.mock(Node.class);
-		Node<Integer> testNode = Mockito.mock(Node.class);
+		Node<Integer> existingNode = nodes[1];
+		Node<Integer> testNode = nodes[2];
 		ll.addToFront(existingNode);
 		ll.addToFront(testNode);
 		Mockito.verify(testNode).setNext(Matchers.eq(existingNode));
@@ -140,7 +145,7 @@ public class LinkedListUnitTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testDeleteFrontOneItem() {
-		ll.addToFront(Mockito.mock(Node.class));
+		ll.addToFront(nodes[1]);
 		ll.deleteFront();
 		assertEquals(ll.getFront(), null);
 	}
@@ -152,10 +157,7 @@ public class LinkedListUnitTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testDeleteFrontMultipleItems() {
-		Node<Integer>[] nodes = new Node[10];
-
 		for (int j = 0; j < 10; j++) {
-			nodes[j] = Mockito.mock(Node.class);
 			if (j > 0) {
 				Mockito.when(nodes[j].getNext()).thenReturn(nodes[j - 1]);
 			}
