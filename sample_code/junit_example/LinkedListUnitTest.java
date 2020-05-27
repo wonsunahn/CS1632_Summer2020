@@ -92,7 +92,7 @@ public class LinkedListUnitTest {
 
 		Node<Integer> testNode = Mockito.mock(Node.class);
 		ll.addToFront(testNode);
-		Mockito.verify(testNode).setNext(Matchers.eq(nodes[9]));
+		Mockito.verify(testNode).setNext(nodes[9]);
 		assertSame(ll.getFront(), testNode);
 
 	}
@@ -109,7 +109,7 @@ public class LinkedListUnitTest {
 		Node<Integer> testNode = nodes[2];
 		ll.addToFront(existingNode);
 		ll.addToFront(testNode);
-		Mockito.verify(testNode).setNext(Matchers.eq(existingNode));
+		Mockito.verify(testNode).setNext(existingNode);
 		assertSame(ll.getFront(), testNode);
 	}
 
