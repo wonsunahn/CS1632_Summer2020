@@ -14,7 +14,7 @@ Software Quality Assurance - Summer 2020
 **Instructor's Office Hours:**
 
   * On Microsoft Teams
-  * Hours: Thu 3:00 PM - 5:00 PM
+  * Hours: Thu 10:00 AM - 12:00 PM
   * ... or by appointment.
 
 **Grading TA Contact Information:**
