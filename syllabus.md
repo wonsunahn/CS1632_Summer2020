@@ -14,6 +14,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 ## WEEK 2 (Week of 18 MAY)
 
 * [Required Class] In-class Exercise 1: Test Plans
+  * Deliverable 1 released due June 1, 2020 06:00 PM
 
 * Listen to lectures:
   * Defects (READING: AFIST, Chapters 9)
@@ -31,6 +32,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 ## WEEK 4 (Week of 1 JUN)
 
 * [Required Class] In-class Exercise 2: Unit Testing
+  * Deliverable 1 due, Deliverable 2 released due June 15, 2020 06:00 PM
 
 * Listen to lectures:
   * Test-driven Development (READING: AFIST, Chapter 15)
@@ -51,6 +53,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 ## WEEK 6 (Week of 15 JUN)
 
 * [Required class] In-class Exercise 3: Automated System Testing
+  * Deliverable 2 due, Deliverable 3 released due June 22, 2020 06:00 PM
 
 * Listen to lectures:
   * Performance Testing (READING: AFIST, Chapter 19)
@@ -59,6 +62,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 ## WEEK 7 (Week of 22 JUN)
 
 * [Required Class] In-class Exercise 4: Performance Testing
+  * Deliverable 3 due, Deliverable 4 released due July 6, 2020 06:00 PM
 
 * Listen to lectures:
   * Static Analysis Part 1
@@ -67,6 +71,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 ## WEEK 8 (Week of 29 JUN)
 
 * [Required Class] In-class Exercise 5: Static Analysis
+  * Deliverable 5 released due July 31, 2020 06:00 PM
 
 * Listen to lectures:
   * Static Analysis Part 3
@@ -75,6 +80,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 ## WEEK 9 (Week of 6 JUL)
 
 * [Optional Class] Lecture Q & A
+  * Deliverable 4 due
 
 * Listen to lectures:
   * Smoke and Exploratory Testing (READING: AFIST, Chapters 10-11)
@@ -84,7 +90,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 * [Optional Class] Midterm 2 review
 
-* Friday 2:00 PM: Midterm 2 released due (17 JUN) Sunday 11:59 PM
+* Friday 2:00 PM: Midterm 2 released due (17 JUL) Sunday 11:59 PM
   * Take home exam submitted online
   * Open book but individual work
   * Will not take any questions whatsoever about lecture material during this period
@@ -96,3 +102,5 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 ## WEEK 12 (Week of 27 JUL)
 
 * [Optional Class] Help with final project
+
+* Deliverable 5 due Friday 06:00 PM
