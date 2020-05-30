@@ -40,31 +40,31 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 * [Optional Class] Midterm 1 review
 
-## WEEK 6 (Week of 15 JUN)
-
-* [Required class] MIDTERM 1
-
 * Listen to lectures:
   * Automated System Testing
   
+* Friday 2:00 PM: Midterm 1 released due (12 JUN) Sunday 11:59 PM
+  * Take home exam submitted online
+  * Open book but individual work
+  * Will not take any questions whatsoever about lecture material during this period
 
-## WEEK 7 (Week of 22 JUN)
+## WEEK 6 (Week of 15 JUN)
 
-* [Required Class] In-class Exercise 3: Automated System Testing
+* [Required class] In-class Exercise 3: Automated System Testing
 
 * Listen to lectures:
   * Performance Testing (READING: AFIST, Chapter 19)
   * Stochastic and Property-Based Testing (READING: AFIST, Chapter 18)
 
-## WEEK 8 (Week of 29 JUN)
+## WEEK 7 (Week of 22 JUN)
 
 * [Required Class] In-class Exercise 4: Performance Testing
 
 * Listen to lectures:
   * Static Analysis Part 1
   * Static Analysis Part 2
-  
-## WEEK 9 (Week of 6 JUL)
+
+## WEEK 8 (Week of 29 JUN)
 
 * [Required Class] In-class Exercise 5: Static Analysis
 
@@ -72,7 +72,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
   * Static Analysis Part 3
   * Pairwise and Combinatorial Testing (READING: AFIST, Chapter 17)
 
-## WEEK 10 (Week of 13 JUL)
+## WEEK 9 (Week of 6 JUL)
 
 * [Optional Class] Lecture Q & A
 
@@ -80,10 +80,19 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
   * Smoke and Exploratory Testing (READING: AFIST, Chapters 10-11)
   * Security Testing (READING: AFIST, Chapter 20)
 
+## WEEK 10 (Week of 13 JUL)
+
+* [Optional Class] Midterm 2 review
+
+* Friday 2:00 PM: Midterm 2 released due (17 JUN) Sunday 11:59 PM
+  * Take home exam submitted online
+  * Open book but individual work
+  * Will not take any questions whatsoever about lecture material during this period
+
 ## WEEK 11 (Week of 20 JUL)
 
-* [Required Class] Guest Lecture (TBD), Midterm 2 review
+* [Required Class] Guest Lecture (TBD)
 
 ## WEEK 12 (Week of 27 JUL)
 
-* [Required class] MIDTERM 2
+* [Optional Class] Help with final project
