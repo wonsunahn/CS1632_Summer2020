@@ -78,62 +78,11 @@ You should see the following output when running runTest.bat (or runTest.sh):
 ALL TESTS PASSED
 ```
 
-Also, you should see the following output or similar when running runTestBuggy.bat (or runTestBuggy.sh):
+And after running runTestBuggy.bat (or runTestBuggy.sh), you should get output that looks like [runTestBuggy.output.txt](runTestBuggy.output.txt).  If you do, this tells you that you have written your JUnit tests well so that they are able to find the bugs in CoffeeMakerQuestBuggy.  Note that I've commented out the following line at TestRunner.java:30 to make the output less verbose:
 ```
-TESTING BUGGY IMPLEMENTATION
-
-testAddRoomAtNorthDuplicate(CoffeeMakerQuestTest): null
-testGetCurrentRoom(CoffeeMakerQuestTest): expected null, but was:<Room@7225790e>
-testAddRoomAtNorthUnique(CoffeeMakerQuestTest):
-Argument(s) are different! Wanted:
-room.setNorthDoor("North");
--> at CoffeeMakerQuestTest.testAddRoomAtNorthUnique(CoffeeMakerQuestTest.java:124)
-Actual invocation has different arguments:
-room.setNorthDoor("South");
--> at CoffeeMakerQuestBuggy.addRoomAtNorth(CoffeeMakerQuestBuggy.java:66)
-
-testProcessCommandDWin(CoffeeMakerQuestTest): expected:<...gar.
-
-You drink the [beverage and are ready to study!
-You win]!
-> but was:<...gar.
-
-You drink the [air, as you have no coffee, sugar, or cream.
-The air is invigorating, but not invigorating enough. You cannot study.
-You lose]!
->
-testProcessCommandDLose(CoffeeMakerQuestTest): expected:<...GAR!
-
-You drink the [air, as you have no coffee, sugar, or cream.
-The air is invigorating, but not invigorating enough. You cannot study.
-You lose]!
-> but was:<...GAR!
-
-You drink the [beverage and are ready to study!
-You win]!
->
-testGetInstructionsString(CoffeeMakerQuestTest): expected:< INSTRUCTIONS [(N,S,L,I,D,H) ]> > but was:< INSTRUCTIONS []> >
-testProcessCommandLCream(CoffeeMakerQuestTest):
-Argument(s) are different! Wanted:
-player.addItem(CREAM);
--> at CoffeeMakerQuestTest.testProcessCommandLCream(CoffeeMakerQuestTest.java:199)
-Actual invocation has different arguments:
-player.addItem(COFFEE);
--> at CoffeeMakerQuestBuggy.processCommand(CoffeeMakerQuestBuggy.java:151)
-
-testProcessCommandI(CoffeeMakerQuestTest): expected:<[YOU HAVE NO COFFEE!
-YOU HAVE NO CREAM!
-YOU HAVE NO SUGAR!]
-> but was:<[Player has nothing.]
->
-testProcessCommandN(CoffeeMakerQuestTest): expected:<Mock for Room, hashCode: 1355316001> but was:<Mock for Room, hashCode: 1597462040>
-testProcessCommandS(CoffeeMakerQuestTest): expected:<Mock for Room, hashCode: 403716510> but was:<Room@32d992b2>
-testAddFirstRoom(CoffeeMakerQuestTest): null
-testSetCurrentRoom(CoffeeMakerQuestTest): null
-
-!!! - At least one failure, see above.```
+System.out.println(f.getTrace());
 ```
-This tells you that you have written your JUnit tests well so that they are able to find the bugs in CoffeeMakerQuestBuggy.
+The above will print a full Java stack trace for every failure.  It is useful when a test fails due to a crash in your program and you want to locate exactly in which source code line the Java exception was thrown.  The defects in this CoffeeMakerQuestBuggy does not involve crashes due to exceptions so I've temporarily commented it out for brevity.
 
 ## Additional Requirements
 
