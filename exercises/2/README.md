@@ -144,51 +144,9 @@ For Mac or Linux, try doing:
 ```
 bash runBuggy.sh
 ```
-This is the type of output you should expect to get:
-```
-TESTING BUGGY IMPLEMENTATION
-    
-testCatAvailableFalseNumCats0(RentACatTest): null
-testCatAvailableFalseNumCats3(RentACatTest): null
-testCatAvailableTrueNumCats3(RentACatTest): null
-testCatExistsFalseNumCats0(RentACatTest): null
-testCatExistsTrueNumCats3(RentACatTest): null
-testListCatsNumCats0(RentACatTest): expected:<[empty]> but was:<[]>
-testListCatsNumCats3(RentACatTest): expected:<ID 1. Jennyanydots[       ID 2. Old Deuteronomy   ID 3. Mistoffelees              ]> but was:<ID 1. Jennyanydots[
-ID 2. Old Deuteronomy
-ID 3. Mistoffelees
-]>
-testRentCatFailureNumCats0(RentACatTest): null
-testRentCatNumCats3(RentACatTest):
-Wanted but not invoked:
-cat.rentCat();
--> at RentACatTest.testRentCatNumCats3(RentACatTest.java:255)
 
-However, there were other interactions with this mock:
-cat.getId();
--> at RentACatBuggy.getCat(RentACatBuggy.java:143)
+If you run the above, you should get output that looks like [runBuggy.output.txt].
 
-cat.getRented();
--> at RentACatBuggy.rentCat(RentACatBuggy.java:41)
-
-
-testReturnCatFailureNumCats0(RentACatTest): null
-testReturnCatNumCats3(RentACatTest):
-Wanted but not invoked:
-cat.returnCat();
--> at RentACatTest.testReturnCatNumCats3(RentACatTest.java:292)
-
-However, there were other interactions with this mock:
-cat.getId();
--> at RentACatBuggy.getCat(RentACatBuggy.java:143)
-
-cat.getRented();
--> at RentACatBuggy.returnCat(RentACatBuggy.java:21)
-
-
-
-!!! - At least one failure, see above.
-```
 You can see that all tests fail except the ones for getCat(int id).  That is because I've inserted bugs into RentACatBuggy except for that method.  If your unit test passes any other method, it must be defective.  Time to fix your test.
 
 ## Submission
@@ -216,9 +174,9 @@ IMPORTANT: Please keep the github private!
 ## GradeScope Feedback
 
 The GradeScope autograder works in 3 phases:
-1. RentACatTestSolution.(some method) on RentACatImpl: RentACatTestSolution is the solution implementation of RentACatTest.  The purpose of this phase is to test RentACatImpl for defects.
-1. RentACatTest.(some method) on RentACatImpl: RentACatTest is the your submitted implementation of RentACatTest.  The purpose of this phase is to test RentACatTest itself for defects.  Assuming RentACatImpl is defect free (as tested in phase 1.), then all tests in RentACatTest should pass.
-1. RentACatTest.(some method) on RentACatBuggy: RentACatTest is the your submitted implementation of RentACatTest and you are testing against the buggy RentACatBuggy implementation.  The purpose of this phase is to further test RentACatTest for defects more rigorously.  It does this by testing whether RentACatTest finds all the bugs that RentACatTestSolution is able to find within RentACatBuggy.
+1. RentACatTestSolution.(some method) on RentACatImpl: RentACatTestSolution is the solution implementation of RentACatTest.  The purpose of this phase is to verify that RentACatImpl (your RentACat implementation) does not have any defects.
+1. RentACatTest.(some method) on RentACatSolution: RentACatTest is your submitted JUnit test for RentACat.  The purpose of this phase is to test RentACatTest itself for defects.  RentACatSolution is the solution implementation of RentACat and contains know defects (that I know of).  Hence, all tests in RentACatTest should pass.
+1. RentACatTest.(some method) on RentACatBuggy: RentACatTest is your submitted JUnit test for RentACat and you are testing against the buggy RentACatBuggy implementation.  The purpose of this phase is to further test RentACatTest for defects.  It does this by testing whether RentACatTest finds all the bugs that RentACatTestSolution is able to find within RentACatBuggy.
 If you see test failures, read the feedback given by the autograder, fix your code, and retry.
 
 Beside the feedback given by the autograder, the TA or myself will leave more detailed feedback on the "Feedback on source code" question.  We will also check your code coverage screenshot submission and give feedback.
