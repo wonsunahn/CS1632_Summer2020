@@ -145,7 +145,7 @@ For Mac or Linux, try doing:
 bash runBuggy.sh
 ```
 
-If you run the above, you should get output that looks like [runBuggy.output.txt].
+If you run the above, you should get output that looks like [runBuggy.output.txt](runBuggy.output.txt).
 
 You can see that all tests fail except the ones for getCat(int id).  That is because I've inserted bugs into RentACatBuggy except for that method.  If your unit test passes any other method, it must be defective.  Time to fix your test.
 
