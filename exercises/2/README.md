@@ -7,7 +7,7 @@ Summer Semester 2020 - Exercise 2
 
 In this exercise, we will simulate the main Rent-A-Cat rental system software.  This is obviously a "toy" implementation of the vast and powerful Rent-A-Cat apparatus.
 
-I have created a framework for you for this exercise.  It is up to you to fill in the `returnCat()`, `rentCat()`, `listCats()` and `catExists()` methods, and write unit tests for them.  Unit tests must use doubles for the Cat object with appropriate stubbing.  I have intentionally inserted a defect on every Cat method such that an exception is fired if you try to use a real Cat object in any way during your unit testing!  Those defects are turned off when Cat is used within the main RentACat program.
+I have created some skeleton code for you to fill in for this exercise.  It is up to you to fill in the `returnCat()`, `rentCat()`, `listCats()` and `catExists()` methods, and write unit tests for them.  Unit tests must use doubles for the Cat object with appropriate stubbing.  I have intentionally inserted a defect on every Cat method such that an exception is fired if you try to use a real Cat object in any way during your unit testing!  Those defects are turned off when Cat is used within the main RentACat program.
 
 Rent-A-Cat rents cats to customers for various needs (mousing, companionship, homework help, etc.).  From the main menu, users may:
 
@@ -58,19 +58,15 @@ Option [1,2,3,4] > 4
 Closing up shop for the day!
 ```
 
-You will modify two classes: RentACatImpl and RentACatTest.  The RentACatImpl class is an (incomplete) implementation of the Rent-A-Cat system.  The RentACatTest class is a JUnit unit test class that tests RentACatImpl.  All locations where you should add code is marked with the // TODO comment.
+You will modify two classes: **RentACatImpl.java** and **RentACatTest.java**.  The RentACatImpl class is an (incomplete) implementation of the Rent-A-Cat system.  The RentACatTest class is a JUnit unit test class that tests RentACatImpl.  All locations where you should add code is marked with // TODO comments.
 
-We are going to use the TestRunner class to invoke JUnit on the RentACatTest class.  Note that RentACatTest.class is added to the list of classesToTest.
+We are going to use the TestRunner class to invoke JUnit on the RentACatTest class.  Note how the RentACatTest.class is added to the list of classesToTest.
 
-You should use test doubles/mocks for any references to classes other than the one under test that the tested class is dependent upon (i.e., double or mock any Cat objects).  You do not need to double the ArrayList class used within RentACatImpl even though RentACatImpl is dependent upon it.  ArrayList is a Java standard library class so we will assume that it is fully tested and defect-free at this point. :)
-
-You do not need to test any of the methods in the Cat class since that is an external class that is beyond the unit we are trying to test.
+You should use test doubles/mocks for any references to classes other than the one under test that the tested class is dependent upon (i.e. you need to mock any Cat objects).  You do not need to mock the ArrayList class used within RentACatImpl even though RentACatImpl is dependent upon it.  ArrayList is a Java standard library class so we will assume that it is fully tested and defect-free at this point. :)
 
 ## Running Unit Tests
 
-If you do this in an IDE such as Eclipse, or with a build tool like Gradle, this can be handled automatically.  HOWEVER, please do not do this!  I want you to realize what is happening "behind the scenes".
-
-1. First let's do a sanity check to see if Java is installed properly on your machine.  For Windows try doing:
+1. First let's do a sanity check to see if JUnit works well with the Java version installed on your machine.  For Windows try doing:
     ```
     run.bat
     ```
@@ -109,26 +105,23 @@ If you do this in an IDE such as Eclipse, or with a build tool like Gradle, this
     !!! - At least one failure, see above.
     ```
     
-3. Now you are ready to start writing the RentACatTest class for real.  Start by adding very simple tests to gain confidence.  Next, try adding more complex cases that require Cat objects.  For that, you will have to modify setUp() to create some Cat test doubles with proper stubs.  We learned how to do that in class.  If you are still unsure, look at the LinkedListTest sample code or the NoogieTest and CoogieTest under the Example/ directory.
+3. Now you are ready to start writing the RentACatTest class for real.  Start by adding very simple tests to gain confidence.  Next, try adding more complex cases that require Cat objects.  For that, you will have to modify setUp() to create some Cat test doubles with proper stubs.  We learned how to do that in class.  If you are still unsure, look at the [LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Summer2020/blob/master/sample_code/junit_example/LinkedListUnitTest.java) sample code or the NoogieTest and CoogieTest under the Example/ directory.
 
 ## Tips
 
-1. Check to see if junit works on your machine before starting to code.
 1. We will try to apply the Test Driven Development (TDD) model here.  Try writing the test case(s) FIRST before writing the code for a feature.  This way, you will always have 100% test coverage for the code you have written and are writing.  Hence, if you break any part of it in the course of adding a feature or refactoring your code, you will know immediately.  Otherwise, if you test at the very end, you may have to do some major changes.
-1. Remember to _not_ double the class under test (i.e. RentACat), only classes that it depends upon (i.e. Cat).  In fact, if you don't double Cat and use the actual Cat objects, your tests will most likely fail.  I have injected artificial defects into the Cat class to emulate a buggy external class.
+1. Remember to _not_ mock the class under test (i.e. RentACat), only external classes that it depends upon (i.e. Cat).  In fact, if you don't mock Cat and use the actual Cat objects, your tests will most likely fail.  I have injected artificial defects in the form of exceptions into the Cat class to emulate a buggy Cat class.  Your tests should work regardless of what's inside Cat.
 1. The easiest thing to do is assert against a return value, but you can also assert against attributes of an object.  For example:
     ```
     @Test
     public void testCatName() {
-       assertEquals("Expected name", _cat.getName());
+       assertEquals("Expected name", cat.getName());
     }
     ```
     You can also use the Mockito verify method to perform behavior verification.
 1. Make use of the @Before and @After methods in your JUnit testing.  @Before and @After methods are invoked before and after each @Test method.  They are used to set up and tear down test fixtures.  Test fixtures in JUnit are objects that need to be created and initialized before performing each test case.  You can think of them as "actors" in your test script.  Having the @Before and @After allows us to avoid duplicating test fixture code in each test case.
-
-* Try to ensure that you check not only for "happy path" cases but also edge cases.
-* Tests are usually grouped into whichever classes they are testing, and have a filename that has `Test` appended to the name.  For example, Foo.java would be tested by FooTest.java.
-* Testing println's or other output is difficult - try to have methods return Strings which are easier to test.  It is possible to test for I/O but it requires some extra steps - see Chapter 14, Section 6 of the textbook for instructions.
+1. In RentACatTest.java, pay close attention to the Javadoc comments on top of each @Test method which describe the preconditions, execution steps, and postconditions.  Remember, part of the preconditions may be already fulfilled with the test fixture initialized in the @Before method.
+1. Each @Test method represents a test case.  A JUnit class with one or more @Test methods represents a test plan. A JUnit class is usually named after whichever class it is testing, with the string `Test` appended to the tested class name.  For example, Foo.java would be tested by FooTest.java.  But this is not necessarily the case.  A JUnit class may test multiple classes with related functionality; in that case, it is typically named after the functionality it is testing.
   
 ## Expected Outcome
 
