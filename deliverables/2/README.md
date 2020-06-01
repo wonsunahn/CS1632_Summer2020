@@ -145,22 +145,17 @@ The GradeScope autograder works in 3 phases:
 
 1. CoffeeMakerQuestImpl verification using CoffeeMakerQuestTestSolution:
    CoffeeMakerQuestTestSolution is the solution implementation of
-CoffeeMakerQuestTest.  The purpose of this phase is to test RentACatImpl for
-defects.
+CoffeeMakerQuestTest.  The purpose of this phase is to verify that CoffeeMakerQuestImpl (your CoffeeMakerQuest implementation) does not have any defects.
 
-1. CoffeeMakerQuestTest on CoffeeMakerQuestImpl: The purpose of this phase is
-   to test CoffeeMakerQuestTest itself for defects.  Assuming
-CoffeeMakerQuestImpl is defect free (as verified in phase 1.), any test
-failures in CoffeeMakerQuestTest while testing CoffeeMakerQuestImpl indicate a
-bug in CoffeeMakerQuestTest.
+1. CoffeeMakerQuestTest on CoffeeMakerQuestSolution: CoffeeMakerQuestTest is your submitted JUnit test for CoffeeMakerQuest.  The purpose of this phase is
+   to test CoffeeMakerQuestTest itself for defects.  CoffeeMakerQuestSolution is the solution implementation of CoffeeMakerQuest and contains no defects (that I know of).  Hence, all tests in CoffeeMakerQuestTest should pass.
 
-1. CoffeeMakerQuestTest on CoffeeMakerQuestBuggy: The purpose of this phase is
+1. CoffeeMakerQuestTest on CoffeeMakerQuestBuggy: CoffeeMakerQuestTest is your submitted JUnit test for CoffeeMakerQuest.  The purpose of this phase is
    to test CoffeeMakerQuestTest against the buggy CoffeeMakerQuestBuggy
 implementation.  The class CoffeeMakerQuestBuggy is given to you in the form of
 the coffeemaker-buggy.jar file.  Since CoffeeMakerQuestBuggy is buggy, you
 expect the tests to fail this time.  If CoffeeMakerQuestTestSolution fails a
-test but CoffeeMakerQuestTest passes a test, then this indicates a problem (and
-vice versa).
+test but CoffeeMakerQuestTest passes a test (or vice versa), then this indicates a problem.
 
 ## Resources
 
