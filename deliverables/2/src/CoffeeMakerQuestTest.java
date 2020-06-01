@@ -9,7 +9,7 @@ public class CoffeeMakerQuestTest {
 
 	CoffeeMakerQuest cmq;
 	Player player;
-	Room room1;	// Magenta room
+	Room room1;	// Small room
 	Room room2;	// Funny room
 	Room room3;	// Refinanced room
 	Room room4;	// Dumb room

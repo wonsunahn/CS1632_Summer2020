@@ -145,7 +145,11 @@ For Mac or Linux, try doing:
 bash runBuggy.sh
 ```
 
-If you run the above, you should get output that looks like [runBuggy.output.txt](runBuggy.output.txt).
+If you run the above, you should get output that looks like [runBuggy.output.txt](runBuggy.output.txt).  Note that I've commented out the following line at TestRunner.java:30 to make the output less verbose:
+```
+System.out.println(f.getTrace());
+```
+The above will print a full Java stack trace for every failure.  It is useful when a test fails due to a crash in your program and you want to locate exactly in which source code line the Java exception was thrown.  The defects in this CoffeeMakerQuestBuggy does not involve crashes due to exceptions so I've temporarily commented it out for brevity.
 
 You can see that all tests fail except the ones for getCat(int id).  That is because I've inserted bugs into RentACatBuggy except for that method.  If your unit test passes any other method, it must be defective.  Time to fix your test.
 
