@@ -1,7 +1,7 @@
 # CS 1632 - Software Quality Assurance
 Summer Semester 2020
 
-* DUE: June 5, 2020 06:00 PM
+* DUE: June 15, 2020 06:00 PM
 
 WARNING: Keep your GitHub repository _PRIVATE_.  Otherwise, you may be held responsible for abetting plagiarism.
 
