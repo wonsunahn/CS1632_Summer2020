@@ -44,14 +44,14 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 * Listen to lectures:
   * Automated System Testing
-  
-## WEEK 6 (Week of 15 JUN)
 
-* Monday (6/15) 10:00 AM: Midterm 1 released due same day 6:00 PM
+* Midterm 1: Sunday (6/14) 10:00 AM - Monday (6/15) 6:00 PM on GradeScope
   * Take home exam submitted online
   * Open book but individual work
   * TopHat questions will not be available during the exam period
   * Will not take any questions whatsoever about lecture material during this period
+
+## WEEK 6 (Week of 15 JUN)
 
 * [Required class] In-class Exercise 3: Automated System Testing
   * Deliverable 3 released due June 29, 2020 06:00 PM
