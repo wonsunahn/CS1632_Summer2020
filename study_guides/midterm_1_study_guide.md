@@ -1,6 +1,6 @@
 # CS 1632 Midterm 1 Exam Study Guide - Summer 2020
 
-The midterm is on June 12 (Friday) 10:00 AM - 11:59 PM.  It's going to be open book but individual work.  I will not take any questions during the midterm about the material that we learned, so if you are not clear about something, please ask during the midterm review or office hours!  Instructions on how to download and submit the exam will be provided as we get closer to the exam date.
+The midterm is on Sunday (6/14) 10:00 AM - Monday (6/15) 6:00 PM.  It's going to be open book but individual work.  I will not take any questions during the midterm about the material that we learned, just like any exam.  Also the TopHat questions will not be available to you during the exam.  The exam will be released on GradeScope on the date of the exam.  Please try solving the "Sample Exam" to practice the mechanics of taking an exam on GradeScope.
 
 The midterm will cover everything up to Writing Testable Code.  I recommend you review the slides and the textbook (See syllabus.md for which chapters are required reading.  The reading is also on the last slide of each lecture).  Going over the TopHat questions will be quite helpful too.  You are also expected to have completed Exercises 1 and 2, and be able to answer related questions.
 
