@@ -100,13 +100,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "9034713c-d619-4f75-ad75-91a4178d642c",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "2559x1320",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "23dff04a-67f5-4f30-9cf9-b6e4db5cd7a2",
       "comment": "",
       "command": "click",
@@ -149,6 +142,13 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
+      "id": "9034713c-d619-4f75-ad75-91a4178d642c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2559x1320",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "9ee8aa92-d04e-4319-8913-11d2fc2c95b3",
       "comment": "",
       "command": "assertText",
@@ -172,11 +172,22 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "4b9d0107-2f7e-4a9e-ba5e-3af003f2daa3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2559x1320",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "78f3dc88-0753-419f-b2dc-78b46730ec4b",
       "comment": "",
       "command": "assertText",
-      "target": "xpath=//div[6]/div/div[2]/div",
-      "targets": [],
+      "target": "css=.\\_8ZLJI1-ZiP7pHJ_yO1L4Z:nth-child(6) .tbIApBd2DM_drfZQJjIum",
+      "targets": [
+        ["css=.\\_8ZLJI1-ZiP7pHJ_yO1L4Z:nth-child(6) .tbIApBd2DM_drfZQJjIum", "css:finder"],
+        ["xpath=//div[@id='SHORTCUT_FOCUSABLE_DIV']/div[2]/div/div/div/div[2]/div[3]/div[2]/div/div[4]/div/div[2]/div[6]/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div", "xpath:position"]
+      ],
       "value": "Don't be Insulting, harassing, or creepy"
     }]
   }, {
@@ -211,7 +222,7 @@
   }],
   "suites": [{
     "id": "cba4b6eb-803b-42ae-baf2-6c1ff4ca8de9",
-    "name": "Default Suite",
+    "name": "RedditCats",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,

@@ -62,7 +62,8 @@ public class RedditCatsTest {
   @Test
   public void rCatsRulenumber6text() {
     driver.get("https://www.reddit.com/r/cats/");
-    assertThat(driver.findElement(By.xpath("//div[6]/div/div[2]/div")).getText(), is("Don\'t be Insulting, harassing, or creepy"));
+    driver.manage().window().setSize(new Dimension(2559, 1320));
+    assertThat(driver.findElement(By.cssSelector(".\\_8ZLJI1-ZiP7pHJ_yO1L4Z:nth-child(6) .tbIApBd2DM_drfZQJjIum")).getText(), is("Don\'t be Insulting, harassing, or creepy"));
   }
   @Test
   public void rCatsRuleshave11items() {
@@ -75,5 +76,14 @@ public class RedditCatsTest {
       List<WebElement> elements = driver.findElements(By.xpath("//div[2]/div[12]/div/div/div"));
       assert(elements.size() == 0);
     }
+  }
+  @Test
+  public void searchsmellycat() {
+    driver.get("https://www.reddit.com/r/cats/");
+    driver.findElement(By.id("header-search-bar")).click();
+    driver.findElement(By.id("header-search-bar")).sendKeys("smelly cat");
+    driver.findElement(By.id("header-search-bar")).sendKeys(Keys.ENTER);
+    driver.manage().window().setSize(new Dimension(2559, 1320));
+    assertThat(driver.findElement(By.xpath("//h3/span")).getText(), is("smelly cat"));
   }
 }
