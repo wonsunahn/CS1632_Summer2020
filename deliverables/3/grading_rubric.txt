@@ -1,0 +1,43 @@
+Report content (40%):
+
+Summary and testing concerns:                             _____ / 5
+  * Describes and summarizes experience (-3 if not)
+  * Describes test failures (-2 if not)
+
+Print out of test suite execution Log:                    _____ / 10
+  
+Defects reported properly:                                _____ / 15
+  * Expected behavior / observed behavior / repro steps (-5 if not)
+  * Description contains the test case which triggered bug (-5 if not)
+  * General quality. Well-specified, well-written. (-5 if not)
+
+Traceability Matrix                                       _____ / 10
+  * -10 if not included
+  * -5 for each requirement not tested
+
+Selenium tests (45%):
+
+Maximum 10/50 if tests cannot run!
+
+Tests execute:                                            _____ / 15
+
+Tests include assertions                                  _____ / 20
+  * -5 for each test without an assertion or verify
+
+Good style:                                               _____ / 10
+  * Test cases are named descriptively (-5 if not)  
+  * Tests cover variety of edge and happy path cases (-5 if not)
+
+Defects (15%):
+
+Three valid defects found:                                _____ / 15
+  * Defect actually occurs (-5 if not)
+
+-----
+
+Other adjustments:                                        _____
+
+Total:                                                    _____ / 100
+
+
+
