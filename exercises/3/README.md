@@ -9,6 +9,7 @@ https://www.reddit.com/r/cats/
 It was chosen because it is a nice safe subreddit which is policed pretty well.  Besides, it's cats.
 
 First, let's start by adding the Selenium IDE browser extension for your web browser by selecting "Chrome Download" or "Firefox Download" on the below website:
+
 https://www.selenium.dev/selenium-ide/
 
 Then, open Selenium IDE by clicking on the newly created browser extension with
@@ -50,7 +51,7 @@ Sometimes your test case will not work as expected.  Here are a few hints on how
 
 ## Try this out
 
-Try exporting a test suite in Selenium IDE to a Java JUnit test class.  You can achieve this by right clicking on a test suite on Selenium IDE and then clicking on "Export" in the context menu.  I've already exported the test suite in "Reddit Cats.side" to the JUnit class "RedditCatsTest.java" for you.  You can try running the JUnit class using the provided TestRunner.java using the following script:
+Try exporting a test suite in Selenium IDE to a Java JUnit test class.  You can achieve this by right clicking on a test suite on Selenium IDE and then clicking on "Export" in the context menu.  I've already exported the test suite in [Reddit Cats.side](Reddit%20Cats.side) to the JUnit class [RedditCatsTest.java](RedditCatsTest.java) for you.  You can try running the JUnit class using the provided [TestRunner.java](TestRunner.java) using the following script:
 
 1. If you are running Windows:
    ```
