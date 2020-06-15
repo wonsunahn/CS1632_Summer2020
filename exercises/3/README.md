@@ -34,7 +34,7 @@ FUN-SIGNUP-LINK - "store attribute" followed by "assert".  You will be storing t
 
 FUN-SEARCH-SMELLY-CAT - "assert text"
 
-FUN-RULE-6 - "assert text"
+FUN-RULE-3 - "assert text"
 
 FUN-RULES-11-ITEMS - "assert element present" for the 11th item; "assert element not present" for the locator for the 12th item.
 
@@ -47,23 +47,36 @@ Sometimes your test case will not work as expected.  Here are a few hints on how
 1. Sometimes the target component of a test step is the problem.  The selector button tries to generate a locator string as best it can using xpath, css selector, or id tag.  But it is not fool proof.  The problem is, the web page may change ever so slightly on the next page load (e.g. due to a new post, or a new comment) and then the locator will stop working.  You will notice that there is a small down arrow at the end of the target text box.  If you click on that arrow, you will see alternative locator strings to the current string.  Select the one that looks specific enough to be able to point to the target but also general enough to not change between page loads.  You do need to try this out several times to get a feel of what a good locator string is.  Here is an in-depth discussion about locators:  
    https://www.seleniumhq.org/docs/09_selenium_ide.jsp#locating-elements
 1. Sometimes you can use an XPATH position locator string to check that an element exists at an expected location ("assert element present") or does not exist ("assert element not present").  But to do this, you have to select the XPath position locator string in the list of target choices.
-1. Try exporting your test case to Java code by pressing on the Export button at the top.  The format that is most familiar to you is probably Java (WebDriver + JUnit).  It uses Selenium WebDriver in conjunction with JUnit.  Reading the Java code gives you a good sense of what is happening behind the scenes.
 
 ## Try this out
 
-Try exporting a test suite in Selenium IDE to a Java JUnit test class.  You can achieve this by right clicking on a test suite on Selenium IDE and then clicking on "Export" in the context menu.  I've already exported the test suite in [Reddit Cats.side](Reddit%20Cats.side) to the JUnit class [RedditCatsTest.java](RedditCatsTest.java) for you.  You can try running the JUnit class using the provided [TestRunner.java](TestRunner.java) using the following script:
+Once you are done writing your Selenium test suite, let's try exporting a test
+suite in Selenium IDE to a Java JUnit test class.  Let's first try the "Export"
+feature with the [Reddit Cats.side](Reddit%20Cats.side) project file provided
+to you.  Save your current project and open the provided file.
 
-1. If you are running Windows:
+Then follow these instructions:
+
+1. Choose "Test Suites" from the left panel drop down menu.
+1. Right click on "RedditCats" (or click on the vertical-3-dot context menu button).
+1. Select "Export" in the context menu.
+1. Select "Java JUnit" in the list of language options and leave all checkboxes unchecked.
+1. Save the resulting file into "RedditCatsTest.java" in the current directory.
+
+You can now run the RedditCatsTest JUnit class using the provided
+[TestRunner.java](TestRunner.java) using one of the following scripts:
+
+* If you are running Windows:
    ```
    cd Windows
    run.bat
    ```
-1. If you are running Mac:
+* If you are running Mac:
    ```
    cd Mac
    run.sh
    ```
-1. If you are running Linux:
+* If you are running Linux:
    ```
    cd Linux
    run.sh
@@ -81,29 +94,36 @@ If things go properly, you will see the Chrome browser pop up repeatedly for
 each test case, perform the actions, and close.  In the command line, you
 should see "ALL TESTS PASSED" as usual.
 
-Running your test case as Java code really gives you a good sense of what's
-happening below the covers.  Also, if there is a test case that is particularly
-hard to nail down just by using Selenium IDE, you can touch it up in the form
-of exported Java code.  Selenium IDE is a tool to reduce coding effort.  But if
-coding is more efficient, don't let the tool get in the way!
+There are multiple reasons why you would want to export to JUnit:
 
-In addition, Selenium IDE gives the option to export a test suite to a Selenium
-Grid which can run the test cases in parallel, although we will not explore
-this option today.
+1. You may have a pre-existing testing framework in JUnit (or Python Pytest, or
+   JavaScript Mocha, etc).  And you may want to merge the Selenium IDE testing
+script to the language and framework of your choice.
 
-Fortunately, the website you will test for Deliverable 3 is not very complex
-and you will not need to export to Java and modify.  Selenium IDE will be good
-enough.
+1. Exporting to JUnit really gives you a good sense of what's happening under
+   the covers (in terms of the actual calls to the WebDriver).  Also, if there
+is a test case that is particularly hard to nail down just by using Selenium
+IDE, you can touch it up in the form of exported Java code.  
+
+1. Selenium IDE also gives the option to export your JUnit test directly to a
+   Selenium Grid which can run the test cases in parallel.  This can allow you
+to utilize a server farm to finish your testing very quickly, although we will
+not explore this option today.
+
+You may optionally try now opening your own Selenium IDE project file and
+exporting your test suite.  You will have to export your JUnit test to the file
+RedditCatsTest.java like I did, or you may have to modify TestRunner.java so
+that it runs your test class.
 
 ## Submission
 
-There is no submission for this exercise.  Please practice until you have gained confidence.
+There is no submission for this exercise.  Please practice until you have
+gained confidence.
  
-My test cases are stored at the "Reddit Cats.side" file.  Feel free to load
-them into Selenium IDE my opening the project and try them out.  Compare with
-your test cases and see if you implemented them correctly.  It is in JSON
-format so you should be able to open it with a text editor and trace it with
-your eyes, if that's what you prefer.
+My solution test cases are stored as the [Reddit Cats.side](Reddit%20Cats.side)
+file afore mentioned.  Compare with your test cases and see if you implemented
+them correctly.  It is in JSON format so you should be able to open it with a
+text editor and trace it with your eyes, if that's what you prefer.
 
 ## Resources
 

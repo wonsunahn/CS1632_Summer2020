@@ -163,7 +163,7 @@
     }]
   }, {
     "id": "b22588f1-048e-4e1f-a721-8c73130fe4bb",
-    "name": " R/Cats Rule number 6 text",
+    "name": " R/Cats Rule number 3 text",
     "commands": [{
       "id": "e839c1aa-8a9e-4d9b-833a-97307048c5e5",
       "comment": "",
@@ -182,13 +182,13 @@
       "id": "78f3dc88-0753-419f-b2dc-78b46730ec4b",
       "comment": "",
       "command": "assertText",
-      "target": "css=.\\_8ZLJI1-ZiP7pHJ_yO1L4Z:nth-child(6) .tbIApBd2DM_drfZQJjIum",
+      "target": "css=.\\_8ZLJI1-ZiP7pHJ_yO1L4Z:nth-child(3) .tbIApBd2DM_drfZQJjIum",
       "targets": [
-        ["css=.\\_8ZLJI1-ZiP7pHJ_yO1L4Z:nth-child(6) .tbIApBd2DM_drfZQJjIum", "css:finder"],
-        ["xpath=//div[@id='SHORTCUT_FOCUSABLE_DIV']/div[2]/div/div/div/div[2]/div[3]/div[2]/div/div[4]/div/div[2]/div[6]/div/div[2]/div", "xpath:idRelative"],
-        ["xpath=//div[6]/div/div[2]/div", "xpath:position"]
+        ["css=.\\_8ZLJI1-ZiP7pHJ_yO1L4Z:nth-child(3) .tbIApBd2DM_drfZQJjIum", "css:finder"],
+        ["xpath=//div[@id='SHORTCUT_FOCUSABLE_DIV']/div[2]/div/div/div/div[2]/div[3]/div[2]/div/div[4]/div/div[2]/div[3]/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div[2]/div[3]/div/div[2]/div", "xpath:position"]
       ],
-      "value": "Don't be Insulting, harassing, or creepy"
+      "value": "No NSFW, animal abuse, or cruelty"
     }]
   }, {
     "id": "939ac7d6-9909-47fb-8978-7617fc615ab0",

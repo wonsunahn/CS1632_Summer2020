@@ -6,6 +6,6 @@ FUN-SIGNUP-LINK - The page shall display a signup button which links to the regi
 
 FUN-SEARCH-SMELLY-CAT - On a search of "smelly cat" at the search box at the top, the next page with the list of results will display the search term "smelly cat" at the top above "Search results".  
 
-FUN-RULE-6 - The page shall display a set of R/Cats Rules of which the 6th is: "Don't be Insulting, harassing, or creepy".  The rules box is located in the bottom right corner.
+FUN-RULE-3 - The page shall display a set of R/Cats Rules of which the 3rd is: "No NSFW, animal abuse, or cruelty".  The rules box is located in the bottom right corner.
 
 FUN-RULES-11-ITEMS - The R/Cats Rules should have exactly 11 items.
