@@ -1,6 +1,6 @@
 ## App homepage: https://cs1632.appspot.com/
 
-FUN-WELCOME - The homepage shall display the text "CS1632 D3" and below it, "Welcome, friend,\nto a land of pure calculation.\nTHE WORLD IS YOUR OYSTER".  The title shall be "CS1632 D3".
+FUN-WELCOME - The homepage shall display the quote "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.", and below it the author "- Brian W. Kernighan".  The title shall be "CS1632 D3".
 
 FUN-LINKS - Every page shall include five links at the top, to "CS1632 D3 Home", "Factorial", "Fibonacci", "Hello", and "Cathedral Pics".  These shall link to `/`, `/fact`, `/fib`, `/hello`, and `/cathy`, respectively.
 
