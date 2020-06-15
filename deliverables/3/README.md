@@ -11,7 +11,13 @@ The web app is located here: https://cs1632.appspot.com/
 
 I am assuming that you have done Exercise 3 by now.  If you haven't, please go do it before working on this deliverable.  I will skip detailed instructions on the Selenium IDE that we already went over on Exercise 3.
 
-For those of you who are working in groups, you will be working on the same shared .side project file.  So it is especially important that your pull before opening the project file and push immediately after you have modified and saved the project file.  Otherwise, you may get merge conflicts.  Merging conflicts is possible by using the technique I went over with the "Using\_Git" slides, but it's best to avoid it.
+For those of you who are working in groups, you will be working on the same
+shared .side project file. So it is especially important that your pull before
+opening the project file and push immediately after you have modified and saved
+the project file. Otherwise, you may get merge conflicts. Merging conflicts is
+possible by using the technique I went over with the
+[Using\_Git](https://github.com/wonsunahn/CS1632_Summer2020/blob/master/lectures/Using_Git.pdf)
+slides, but it's best to avoid it.
 
 ## Format
 Everyone should have a title page with:
