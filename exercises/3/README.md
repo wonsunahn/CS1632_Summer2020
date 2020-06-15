@@ -15,7 +15,7 @@ Then, open Selenium IDE by clicking on the newly created browser extension with
 the "Se" symbol.  You should see a pop up window that looks very similar to the
 one shown on the lecture slides.
 
-Write a test case for each requirement listed in [requirements.md].
+Write a test case for each requirement listed in [requirements.md](requirements.md).
 
 Remember, each test must end with an assertion!  The list of available assertions and other commands are available at:
 
