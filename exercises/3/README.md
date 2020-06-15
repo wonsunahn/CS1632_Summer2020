@@ -8,7 +8,14 @@ https://www.reddit.com/r/cats/
 
 It was chosen because it is a nice safe subreddit which is policed pretty well.  Besides, it's cats.
 
-Write a test for each requirement listed in requirements.md.  
+First, let's start by adding the Selenium IDE browser extension for your web browser by selecting "Chrome Download" or "Firefox Download" on the below website:
+https://www.selenium.dev/selenium-ide/
+
+Then, open Selenium IDE by clicking on the newly created browser extension with
+the "Se" symbol.  You should see a pop up window that looks very similar to the
+one shown on the lecture slides.
+
+Write a test case for each requirement listed in [requirements.md].
 
 Remember, each test must end with an assertion!  The list of available assertions and other commands are available at:
 
