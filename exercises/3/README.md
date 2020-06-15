@@ -42,11 +42,40 @@ FUN-RULES-11-ITEMS - "assert element present" for the 11th item; "assert element
 
 Sometimes your test case will not work as expected.  Here are a few hints on how to debug a problem:
 
-1. Check the Log window at the bottom of the Selenium IDE.  It will tell you which step failed for what reason (in red).
-1. Select the test step that failed in the main test case window, and then select the Reference tab at the bottom pane of the IDE.  It will display usage instructions for that command.  If you need more information, refer to the link posted above.
-1. Sometimes the target component of a test step is the problem.  The selector button tries to generate a locator string as best it can using xpath, css selector, or id tag.  But it is not fool proof.  The problem is, the web page may change ever so slightly on the next page load (e.g. due to a new post, or a new comment) and then the locator will stop working.  You will notice that there is a small down arrow at the end of the target text box.  If you click on that arrow, you will see alternative locator strings to the current string.  Select the one that looks specific enough to be able to point to the target but also general enough to not change between page loads.  You do need to try this out several times to get a feel of what a good locator string is.  Here is an in-depth discussion about locators:  
+1. Check the Log window at the bottom of the Selenium IDE.  It will tell you
+   which step failed for what reason (in red).
+
+1. Select the test step that failed in the main test case window, and then
+   select the Reference tab at the bottom pane of the IDE.  It will display
+usage instructions for that command.  Remember always, the first argument goes to the Target field and the second argument goes to the Value field, regardless of command.
+
+1. Sometimes the target component of a test step is the problem.  The selector
+   button tries to generate a locator string as best it can using xpath, css
+selector, or id tag.  But it is not fool proof.  The problem is, the web page
+may change ever so slightly on the next page load (e.g. due to a new post, or a
+new comment) and then the locator will stop working.  You will notice that
+there is a small down arrow at the end of the target text box.  If you click on
+that arrow, you will see alternative locator strings to the current string.
+Select the one that looks specific enough to be able to point to the target but
+also general enough to not change between page loads.  You do need to try this
+out several times to get a feel of what a good locator string is.  Here is an
+in-depth discussion about locators:  
+
    https://www.seleniumhq.org/docs/09_selenium_ide.jsp#locating-elements
-1. Sometimes you can use an XPATH position locator string to check that an element exists at an expected location ("assert element present") or does not exist ("assert element not present").  But to do this, you have to select the XPath position locator string in the list of target choices.
+
+1. Sometimes you can use an XPATH position locator string to check that an
+   element exists at an expected location ("assert element present") or does
+not exist ("assert element not present").  But to do this, you have to select
+the XPath position locator string in the drop-down list of optional strings in
+the Target field.
+
+1. For those of you who are working in groups, you will be working on the same
+   shared .side project file. So it is especially important that your pull
+before opening the project file and push immediately after you have modified
+and saved the project file. Otherwise, you may get merge conflicts. Merging
+conflicts is possible by using the technique I went over with the
+[Using\_Git](https://github.com/wonsunahn/CS1632_Summer2020/blob/master/lectures/Using_Git.pdf)
+slides, but it's best to avoid it.
 
 ## Try this out
 
@@ -94,6 +123,11 @@ If things go properly, you will see the Chrome browser pop up repeatedly for
 each test case, perform the actions, and close.  In the command line, you
 should see "ALL TESTS PASSED" as usual.
 
+You may optionally try now opening your own Selenium IDE project file and
+exporting your test suite.  You will have to export your JUnit test to the file
+RedditCatsTest.java like I did, or you may have to modify TestRunner.java so
+that it runs your test class.
+
 There are multiple reasons why you would want to export to JUnit:
 
 1. You may have a pre-existing testing framework in JUnit (or Python Pytest, or
@@ -109,11 +143,6 @@ IDE, you can touch it up in the form of exported Java code.
    Selenium Grid which can run the test cases in parallel.  This can allow you
 to utilize a server farm to finish your testing very quickly, although we will
 not explore this option today.
-
-You may optionally try now opening your own Selenium IDE project file and
-exporting your test suite.  You will have to export your JUnit test to the file
-RedditCatsTest.java like I did, or you may have to modify TestRunner.java so
-that it runs your test class.
 
 ## Submission
 
