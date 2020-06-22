@@ -57,9 +57,8 @@ will do the following:
 1. Profile again to determine whether you made enough improvement, otherwise go back to 1.
 
 In this way, on each iteration, you will be able to focus on the method that
-has the potential for improvement.  It is important to profile at the
-beginning of each iteration since you are modifying the program on each
-iteration.
+has the most potential for improvement.  It is important to profile at the
+beginning of each iteration to get the most up-to-date profile since the last modification.
 
 The code is available under the src/ directory.
 
