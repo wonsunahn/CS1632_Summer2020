@@ -81,7 +81,14 @@ At each round, the current status of who is doing the throwing and who is catchi
 
 Each monkey has an ID; this ID shall remain constant.  For instance, Monkey #5 shall always have ID 223497, and Monkey #160 shall always have ID 223652.  Any changes to the code should not modify the ID value.
 
-Sample runs are shown in the sample_runs.txt file.
+Sample runs are shown in the [sample_runs.txt](sample_runs.txt) file.  For
+those of you who are interested, MonkeySim is a simulation of the Collatz
+Conjecture (https://en.wikipedia.org/wiki/Collatz_conjecture).  The conjecture
+is that no matter which monkey initially has the banana, Monkey #1 will
+eventually catch the banana in a finite amount of time.  Nobody has been able
+to find an initial monkey which behaves otherwise, but nobody has been able to
+prove that such a monkey does not exist either (which is why it is called a
+conjecture)!
 
 ## How to Run MonkeySim
 
@@ -232,15 +239,14 @@ Although you can work with your partner on this exercise (or anybody else), I re
 
 You will do two submissions for this exercise.
 
-1. You will create a github repository just for exercise 4.  Add your partner
-   as a collaborator so both of you have access.  Make sure you keep the
-repository *PRIVATE* so that nobody else can access your repository.  This
-applies to all future submissions for this course.  Once you are done modifying
-code, don't forget to commit and push your changes to the github repository.
-When you are done, submit your github repository to GradeScope at the "Exercise
-4 GitHub" link.  Once you submit, GradeScope will run the autograder to grade
-you and give feedback.  If you get deductions, fix your code based on the
-feedback and resubmit.  Repeat until you don't get deductions.
+1. You will create a github repository just for exercise 4.  Make sure you keep
+   the repository *PRIVATE* so that nobody else can access your repository.
+Once you are done modifying code, don't forget to commit and push your changes
+to the github repository.  When you are done, submit your github repository to
+GradeScope at the "Exercise 4 GitHub" link.  Once you submit, GradeScope will
+run the autograder to grade you and give feedback.  If you get deductions, fix
+your code based on the feedback and resubmit.  Repeat until you don't get
+deductions.
 
 1. Create a screenshot of the VisualVM profiling result running MonkeySim with argument 27 and name it profile.png. Example:
 
@@ -250,9 +256,7 @@ feedback and resubmit.  Repeat until you don't get deductions.
 
     After you have created the screenshot, save the picture to a PDF file and submit to GradeScope at the "Exercise 4 Profile" link.  Make sure the picture fits in one page for easy viewing and grading.
 
-Please submit by Sunday (3/8) 11:59 PM to get timely feedback.
-
-IMPORTANT: Please keep the github private!
+Please submit by Friday (6/26) 06:00 PM to get timely feedback.
 
 ## GradeScope Feedback
 
