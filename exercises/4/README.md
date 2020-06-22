@@ -86,7 +86,10 @@ Alternatively, I've created an Eclipse project for you so you can use Eclipse to
 
 ## What to do
 
-In order to determine the "hot spots" of the application, you will need to run a profiler such as VisualVM (download at https://visualvm.github.io/).  Using the profiler, determine a method you can modify to measurably increase the speed of the application without modifying behavior.
+In order to determine the "hot spots" of the application, you will need to run
+a profiler such as VisualVM (download at https://visualvm.github.io/).  Using
+the profiler, determine a method you can modify to measurably increase the
+speed of the application without modifying behavior.
 
 Some tips for using VisualVM:
 1. Your Java app will only show up in VisualVM _during_ execution.  When the MonkeySim application shows up on the left panel, you need to quickly double click on the MonkeySim application and then click on the Profiler tab.  Then, on the Profiler window that shows up on the main pane, quickly click on the CPU button to start profiling CPU utilization.  Finally, click on the "Hot spots" button to get a list of methods sorted by running times.
@@ -102,32 +105,130 @@ If you right click on one of the methods in the "Hot spots" methods list, you'll
 
 Now you are ready to modify that method.  Remember, the program should work
 EXACTLY the same as before, except it should be faster and take up less CPU
-time.  In order to guarantee this, you need pinning tests.  For the
-exercise, you will use the runs in sample_runs.txt as a systems level
-pinning tests.  Meaning, the output should match the original output exactly
-in each case (except the execution time of course).  Feel free to automate
-the pinning tests using a script like we learned at the beginning of chapter
-12, automated systems testing.
+time.  
 
 Refactor *four* of the most time consuming methods in MonkeySim.  You should
 not change the behavior of any of the methods; only refactor the implementation
 so that they are more efficient.  Three of the methods will be very
-straightforward because they contain obviously redundant computation.  The
-remaining one (generateId) is less straightforward.  All the computation is
-required to generate the ID.  Hint: but do we really need to generate all those
-IDs?
+straightforward because they contain obviously redundant computation.
 
-This is what I got after optimizing:  
-![alt text](profile.png "VisualVM snapshot after optimizations")  
-I gave argument 27 for the run.  Note that now the run takes approximately 3 seconds to run, which is a marked improvement over 37 minutes for the original code!  Now the most time consuming method is generateId by a wide margin.  But there is no way to refactor that method without changing the output.  Refactoring any other method would have negligible impact on performance.  So this is when you pat yourself on the back and declare victory.
+One method (generateId) is less straightforward.  All the computation seems
+necessary to generate the monkey IDs that are displayed in the output.  Naively
+removing the ID generation will result in a different output.  Hint: Do we
+really need to generate all those IDs for the output?
+
+This is what I got after optimizing:
+![alt text](profile.png "VisualVM snapshot after optimizations")
+
+I gave argument 27 for the run.  Note that now the run takes approximately 3
+seconds to run, which is a marked improvement over 37 minutes for the original
+code!  Now the most time consuming method is generateId by a wide margin.  But
+there is no way to refactor that method without changing the output.
+Refactoring any other method would have negligible impact on performance.  So
+this is when you pat yourself on the back and declare victory.
+
+## Pinning Tests
+
+All the while refactoring methods to improve performance, you need to make sure
+that the functional behavior of the program does not change.  We learned that
+writing pinning tests and running them after every code change is a way of
+guaranteeing this.  Lucky for you, I have already wrote a set of pinning tests
+for you in the file MonkeySimPinningTest.java using JUnit.  You can run them
+with TestRunner.java using the following script:
+
+1. For Windows do:
+    ```
+    runTest.bat
+    ```
+1. For Mac / Linux do:
+    ```
+    bash runTest.sh
+    ```
+
+The tests pass with the original MonkeySim (obviously because the pinning tests
+are based on the existing behavior of MonkeySim).  Your job is to make sure
+that they stay that way.
+
+Now let's look at the @Before setUp() method in MonkeySimPinningTest.java
+because there a few interesting things to note there:
+
+1. Note how I redirected the output stream for testing purposes:
+
+    ```
+    // Back up the old output stream
+    stdout = System.out;
+    // Redirect the output stream
+    System.setOut(new PrintStream(out));
+    ```
+
+    This was done to be able to test system output.  In the last test
+testArgument5RunSimulation(), lines printed to the screen using
+System.out.println can now be compared to a String.  I also made sure I
+restored the original output stream in the @After teadDown() method:
+
+    ```
+    System.setOut(stdout);
+    ```
+
+    Please read textbook Chapter 14.6 Testing System Output, for further
+explanation.
+
+1. Note how I used Java Reflection to force reset Monkey.monkeyNum, which is a
+   private static field, to 0:
+
+    ```
+    Field f = Monkey.class.getDeclaredField("monkeyNum");
+    f.setAccessible(true);
+    f.set(null, 0);
+    ```
+
+    Previously, we have called private methods, but this is the first time we
+accessed a private field.  The field is first made accessible and then set to
+0.  The first instance argument in f.set(null, 0) is null because this is a
+static field and there is no instance.  Please see textbook Chapter 24
+Using Reflection to Test Private Methods in Java, for related material.
+
+    Legacy code is often not written with ease-of-testing in mind and the same
+goes for this one.  Monkey.monkeyNum is the monkey number assigned to a newly
+created monkey and is incremented by one each time so that each monkey in the
+list will get a monotonically increasing number.  The developer did not think
+to put in a method to be able to reset Monkey.monkeyNum to 0, because it's not
+needed for the program itself as the monkey list is only created once.  But in
+a test scenario, we need to constantly reset Monkey.monkeyNum to 0 as we
+repeatedly recreate the list of monkeys in our setUp() method.  So we are
+forced to use Java reflection to force reset that number,
+
+1. Note how I used real objects instead of mocked objects, even for external
+   classes when I initialized the test fixture.  You may ask: isn't this
+against all we learend about unit testing?  Are we not de facto testing large
+parts of the system beyond the unit by not mocking and stubbing?  Yes,
+absolutely!  In fact, I made the conscious choice of doing systems testing
+instead of unit testing for the pinning tests.  This is often done when you
+receive legacy code without any unit testing infrastructure.  Rather than look
+for "seams" in the code to construct unit tests and emulating behavior of
+mocked objects, which is time consuming, end-to-end systems tests are slapped
+on for the purposes of pinning down existing behavior, which is much easier.
+Eventually, these end-to-end pinning tests are refined into unit pinning tests
+as the tester or developer gains more understanding of the code.
+
+    For Deliverable 4, I will ask *you* to write pinning tests yourself.  And
+for these pinning tests, I'm going to ask you to write unit pinning tests.
 
 ## Submission
 
-Each pairwise group will submit the exercise *once* to GradeScope, by *one member* of the group.  The submitting member will press the "View or edit group" link at the top-right corner of the assignment page after submission to add his/her partner.  That way, the feedback will be accessible to both of you.  I recommend that you divide the list of methods to implement / test into two halves and working on one half each.
+Although you can work with your partner on this exercise (or anybody else), I recommend that you do an individual submission as Deliverable 4 will also be individual work.
 
 You will do two submissions for this exercise.
 
-1. You will create a github repository just for exercise 4.  Add your partner as a collaborator so both of you have access.  Make sure you keep the repository *PRIVATE* so that nobody else can access your repository.  This applies to all future submissions for this course.  Once you are done modifying code, don't forget to commit and push your changes to the github repository.  When you are done, submit your github repository to GradeScope at the "Exercise 4 GitHub" link.  Once you submit, GradeScope will run the autograder to grade you and give feedback.  If you get deductions, fix your code based on the feedback and resubmit.  Repeat until you don't get deductions.
+1. You will create a github repository just for exercise 4.  Add your partner
+   as a collaborator so both of you have access.  Make sure you keep the
+repository *PRIVATE* so that nobody else can access your repository.  This
+applies to all future submissions for this course.  Once you are done modifying
+code, don't forget to commit and push your changes to the github repository.
+When you are done, submit your github repository to GradeScope at the "Exercise
+4 GitHub" link.  Once you submit, GradeScope will run the autograder to grade
+you and give feedback.  If you get deductions, fix your code based on the
+feedback and resubmit.  Repeat until you don't get deductions.
 
 1. Create a screenshot of the VisualVM profiling result running MonkeySim with argument 27 and name it profile.png. Example:
 
@@ -148,10 +249,21 @@ It is encouraged that you submit to GradeScope early and often.  Please use the 
 The GradeScope autograder works in 2 phases:
 
 1. MonkeySim method pinning tests
-    These are JUnit pinning tests that I wrote to make sure that the important methods in MonkeySim remain pinned down (that is you didn't inadvertently modify their behaviors).  They should all pass with the original MonkeySim and it should stay that way.
+
+   These are the JUnit pinning tests in MonkeySimPinningTest applied to Monkey
+sim.  They all pass with the original MonkeySim and they should stay that way.
 
 1. MonkeySim method performance tests
-    These are JUnit tests that I wrote to see if you made improvements on the four most time consuming methods in MonkeySim.  I set a timeout of 10 ms for each of them and if you don't complete the task within that amount of time, the test fails.  I also test the entire program using runSimulation() after setting up the monkey list to begin with monkey #5.  The simulation has a timeout of 300 ms.  You could potentially try to glean the time consuming methods from looking at the methods that I test, but please don't do that.  See if you can extract that information from the VisualVM tool.  The test output will not be so revealing on your deliverable!
+
+   These are JUnit tests that I wrote to see if you made improvements on the
+four most time consuming methods in MonkeySim.  I set a timeout of 10 ms for
+each of them and if you don't complete the task within that amount of time, the
+test fails.  I also test the entire program using runSimulation() after setting
+up the monkey list to begin with monkey #5.  The simulation has a timeout of
+300 ms.  You could potentially try to glean the time consuming methods from
+looking at the methods that I test, but please don't do that.  See if you can
+extract that information from the VisualVM tool.  The test output will not be
+so revealing on your deliverable!
 
 ## Resources
 
