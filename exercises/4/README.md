@@ -51,10 +51,10 @@ But enough of profiling theory, how do I actually use it?  Performance
 debugging through profiling is an iterative process.  On each iteration, you
 will do the following:
 
-1. Profile the program.  Sort all methods in descending order of running time and
+1. Profile the program.  Sort all methods in descending order of CPU utilization and
    search for refactoring opportunities starting from the top.
 1. Refactor selected method to be more performant (being careful not to change functionality using pinning tests).
-1. Profile again to determine whether you made an improvement, otherwise go back to refactoring.
+1. Profile again to determine whether you made enough improvement, otherwise go back to 1.
 
 In this way, on each iteration, you will be able to focus on the method that
 has the potential for improvement.  It is important to profile at the
