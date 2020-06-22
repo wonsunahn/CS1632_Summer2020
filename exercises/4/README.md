@@ -63,9 +63,11 @@ iteration.
 
 The code is available under the src/ directory.
 
-## MonkeySim Description
+## MonkeySim Requirements
 
-This code runs MonkeySim, which simulates a group of monkeys throwing a banana back around until it gets to the first monkey.  It accepts one argument, which states which monkey has the banana initially.
+This code runs MonkeySim, which simulates a group of monkeys throwing a banana back around until it gets to the first monkey.
+
+The game shall accepts one argument, which states which monkey has the banana initially.
 
 The game shall continue until the first monkey gets the banana, at which point the simulation shall end.
 
