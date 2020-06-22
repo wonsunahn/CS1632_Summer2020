@@ -1,4 +1,16 @@
 # Exercise 4 Performance Testing Exercise
+Summer Semester 2020 - Exercise 2
+
+* DUE: June 26, 2020 06:00 PM
+
+Let's start by downloading the VisualVM Java profiler from:
+https://visualvm.github.io/
+
+Please click on the "Download Standalone" link at the top of the project page.
+Keep the download running as you read the below instructions and install it
+when it is ready.
+
+## Description
 
 For this exercise, you will test and improve the performance of a monkey
 simulation software.  When you are asked to improve the performance of any
@@ -87,7 +99,7 @@ Alternatively, I've created an Eclipse project for you so you can use Eclipse to
 ## What to do
 
 In order to determine the "hot spots" of the application, you will need to run
-a profiler such as VisualVM (download at https://visualvm.github.io/).  Using
+a profiler such as VisualVM (https://visualvm.github.io/).  Using
 the profiler, determine a method you can modify to measurably increase the
 speed of the application without modifying behavior.
 
