@@ -195,8 +195,8 @@ explanation.
     ```
 
     Previously, we have called private methods, but this is the first time we
-accessed a private field.  The field is first made accessible and then set to
-0.  The first instance argument in f.set(null, 0) is null because this is a
+accessed a private field.  The field is first made accessible and then set to 0.
+The first instance argument in f.set(null, 0) is null because this is a
 static field and there is no instance.  Please see textbook Chapter 24
 Using Reflection to Test Private Methods in Java, for related material.
 
@@ -208,7 +208,7 @@ to put in a method to be able to reset Monkey.monkeyNum to 0, because it's not
 needed for the program itself as the monkey list is only created once.  But in
 a test scenario, we need to constantly reset Monkey.monkeyNum to 0 as we
 repeatedly recreate the list of monkeys in our setUp() method.  So we are
-forced to use Java reflection to force reset that number,
+forced to use Java reflection to force reset that number.
 
 1. Note how I used real objects instead of mocked objects, even for external
    classes when I initialized the test fixture.  You may ask: isn't this
