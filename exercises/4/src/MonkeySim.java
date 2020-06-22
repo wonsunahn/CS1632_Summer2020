@@ -2,7 +2,7 @@ import java.util.*;
 
 public class MonkeySim {
 
-	private static List<Monkey> _monkeyList = new LinkedList<Monkey>();
+	private static List<Monkey> monkeyList = new LinkedList<Monkey>();
 
 	public static final int HEADER = 50000;
 
@@ -186,11 +186,11 @@ public class MonkeySim {
 
 		for (int j = 0; j < s + 1; j++) {
 			tmpMonkey = new Monkey();
-			_monkeyList.add(tmpMonkey);
+			monkeyList.add(tmpMonkey);
 		}
-		_monkeyList.get(s).throwBananaTo(b);
+		monkeyList.get(s).throwBananaTo(b);
 
-		int numRounds = runSimulation(_monkeyList, mw);
+		int numRounds = runSimulation(monkeyList, mw);
 		System.out.println("Completed in " + numRounds + " rounds.");
 	}
 }
