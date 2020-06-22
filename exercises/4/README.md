@@ -1,5 +1,5 @@
 # Exercise 4 Performance Testing Exercise
-Summer Semester 2020 - Exercise 2
+Summer Semester 2020 - Exercise 4
 
 * DUE: June 26, 2020 06:00 PM
 
