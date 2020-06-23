@@ -51,15 +51,14 @@ But enough of profiling theory, how do I actually use it?  Performance
 debugging through profiling is an iterative process.  On each iteration, you
 will do the following:
 
-1. Profile the program.  Sort all methods in descending order of running time and
+1. Profile the program.  Sort all methods in descending order of CPU utilization and
    search for refactoring opportunities starting from the top.
 1. Refactor selected method to be more performant (being careful not to change functionality using pinning tests).
-1. Profile again to determine whether you made an improvement, otherwise go back to refactoring.
+1. Profile again to determine whether you made enough improvement, otherwise go back to 1.
 
 In this way, on each iteration, you will be able to focus on the method that
-has the potential for improvement.  It is important to profile at the
-beginning of each iteration since you are modifying the program on each
-iteration.
+has the most potential for improvement.  It is important to profile at the
+beginning of each iteration to get the most up-to-date profile since the last modification.
 
 The code is available under the src/ directory.
 
@@ -69,15 +68,13 @@ This code runs MonkeySim, which simulates a group of monkeys throwing a banana b
 
 * The game shall accepts one argument, which states which monkey has the banana initially.
 
-* The game shall continue until the first monkey gets the banana, at which point the simulation shall end.
-
 * The monkey who has the banana shall throw it to another monkey during each round.
 
 * If a monkey is even-numbered (e.g., monkey #2, monkey #4, etc.), then the monkey with the banana shall throw the banana to the monkey equal to one-half of that initial monkey's number.  For example, monkey #4 shall throw the banana to monkey #2, and monkey #20 shall throw the banana to monkey #10.
 
 * If a monkey is odd-numbered (and not monkey #1), the monkey with the banana shall throw it to the monkey equal to three times the number of that monkey plus one `(3n + 1)`.  For example, monkey #5 shall throw the banana to monkey #16 `((3 * 5) + 1)`.
 
-* If Monkey #1 catches the banana, the system shall display the number of rounds it took for Monkey #1 to catch the banana and then the program shall exit.
+* If monkey #1 catches the banana, the system shall display the number of rounds it took for Monkey #1 to catch the banana and then the program shall exit.
 
 * At each round, the current status of who is doing the throwing and who is catching shall be displayed, along with the round number (which should start at 1).  It should use the following format: "Round 1: Threw banana from Monkey (#54 / ID 223546) to Monkey (#27 / ID 223519)"
 
