@@ -24,7 +24,7 @@ Clearly written:                     ____ / 10
 Each requirement & TC listed:        ____ / 5
 
 >= 1 Test case per requirement, and
-exactly 1 requirement per TC:        ____ / 5
+>= 1 Requirement per TC:             ____ / 5
 
 Test case covers listed reqs:        ____ / 10      
 
