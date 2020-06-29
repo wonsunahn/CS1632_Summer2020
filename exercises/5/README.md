@@ -127,16 +127,27 @@ through the code to get to the defective state.
 
 First cd into the DrunkCarnivalShooter folder.
 
-Now let's try using JPF to debug and verify a real program.  DrunkCarnivalShooter is a simple text-based game where the player goes to a carnival shooting range and tries to win the prize by shooting all 4 provied targets.  The player can designate what target to shoot for pressing 0-3.  But since the player is drunk, there is an equal chance of the player shooting left or right as shooting straight.  Refer to the file [sample_run.txt](sample_run.txt) for an example game play session.  You can also try playing it yourself using the reference implementation:
+Now let's try using JPF to debug and verify a real program.
+DrunkCarnivalShooter is a simple text-based game where the player goes to a
+carnival shooting range and tries to win the prize by shooting all 4 provied
+targets.  The player can designate what target to shoot for pressing 0-3.  But
+since the player is drunk, there is an equal chance of the player shooting left
+or right as shooting straight.  Refer to the file
+[sample_run.txt](sample_run.txt) for an example game play session.  You can
+also try playing it yourself using the reference implementation:
+
 ```
 $ java -jar DrunkCarnivalShooter.jar
 ```
 
 To run the DrunkCarnivalShooter using the current implementation (for Windows users):
+
 ```
 $ run.bat
 ```
+
 For Mac or Linux:
+
 ```
 $ ./run.sh
 ```
@@ -146,10 +157,13 @@ immediately after playing the game once or twice.  The bug does not manifest in
 a deterministic way due to the randomness but you will notice soon enough.
 
 So now let's use the JPF tool to try find some defects!
+
 ```
 $ runJPF.bat DrunkCarnivalShooter.win.jpf
 ```
+
 For Mac or Linux:
+
 ```
 $ ./runJPF.sh DrunkCarnivalShooter.macos.jpf
 ```
@@ -268,15 +282,19 @@ the culprit leading to the state explosion.  The round number is not something
 we are interested in verifying right now.  So, let's filter that state out!
 
 Import the appropriate JPF library at the top of DrunkCarnivalShooter.java again:
+
 ```
 import gov.nasa.jpf.annotation.FilterField;
 ```
+
 And now, let's annotate roundNum such that it is filtered out:
+
 ```
 @FilterField private static int roundNum;
 ```
 
 Now if we run runJPF.bat again, JPF will only go up to Round #2 and stop and declare "no errors detected".
+
 ```
 ...
 Round #2:
@@ -291,14 +309,63 @@ But why Round #2?  We would expect that 4 rounds would be needed to cover all
 the 16 possible states.  In fact, if you see the output, you can see it does
 not cover all the possible 16 states.  And somehow the game is able to
 terminate after 2 rounds.  So the game now does not throw any exceptions but
-still malfunctions.  So what can be done?  Let's write a JUnit test to check
-the behavior of the game against expected behavior!
+still malfunctions.
 
-Fill in the locations with TODO comments inside DrunkCarnivalShooterTest.java.
-In the setUp method, use the Verify API such that you enumerate all the 16
-possible states that the game can be in, as well as the target choice made by
-the user (0-3).  In this way, each of your JUnit test cases will be tested on
-all possible states the game can be in with all possible user inputs!
+JPF can only check for systems properties that it knows about while traversing
+the program state space.  If you don't tell it anything, the only thing JPF
+knows about a Java program is that it should not throw exceptions at any point.
+If you want to check that your program behaves in a certain way according to
+the requirements, you need to tell JPF about these additional properties.  The
+way to encode properties is though assertions that assert the given invariant
+property at that point of execution.  There are two options to insert these
+assertions:
+
+1. The assertions be embedded in your program code in the form of Java assert
+   statements.  This is useful in the context of systems testing your code as
+these assertions will be checked while your system is running.  But this has
+the drawback that your testing code is mixed in with your implementation code
+which is not good for code readability and/or maintenance.  Also, it is hard to
+apply unit testing in a systematic way.
+
+1. The other option is to use JPF as part of the JUnit testing framework.
+   JUnit will check for defects by checking postconditions using JUnit
+assertions, just like with regular unit testing.  But each of the JUnit tests
+become comprehensive and exhaustive thanks to JPF, even in the face of random
+program behavior.  JPF makes sure that the invariant assertion holds for all
+the random behaviors the program can display.  It also does this for all
+possible user inputs if the Verify API is used.
+
+We will choose the latter option.
+
+### JPF on JUnit on DrunkCarnivalShooter
+
+Now we are not systems testing DrunkCarnivalShooter.  We want to invoke JUnit
+on DrunkCarnivalShooter.  The script to do that is as follows:
+
+```
+runJPF.bat JUnit.win.jpf
+```
+
+For Mac or Linux:
+
+```
+runJPF.sh JUnit.macos.jpf
+```
+
+If you peek into JUnit.win.jpf (or JUnit.macos.jpf), you will notice that now
+the execution target is set to TestRunner instead of DrunkCarnivalShooter:
+
+```
+target = TestRunner
+```
+
+TestRunner invokes JUnit on the DrunkCarnivalShooterTest test class.  As is,
+DrunkCarnivalShooterTest.java is incomplete and does not do much.  Fill in the
+locations with // TODO comments inside DrunkCarnivalShooterTest.java.  In the
+setUp method, use the Verify API such that you enumerate all the 16 possible
+states that the game can be in, as well as the target choice made by the user
+(0-3).  In this way, each of your JUnit test cases will be tested on all
+possible states the game can be in with all possible user inputs.
 
 In the testShoot() method, implement the preconditions, execution steps, and
 the invariant to test the shoot(targetChoice, builder) method as explained in
@@ -319,16 +386,9 @@ The failString tells you the combination of game state and target choice that
 led to the failure, which helps you debug the problem.  Feel free to append
 additional information to the failString that may help you debug.
 
-In order to run JUnit with JPF,
-```
-runJPF.bat JUnit.win.jpf
-```
-For Mac or Linux:
-```
-runJPF.sh JUnit.macos.jpf
-```
-
-If you implemented the test properly, you should see a long list of errors for different combinations.  Debug DrunkCarnivalShooterImpl to remove the errors.  Now if you play the game, you should not see any defects.
+If you implemented the test properly, you should see a long list of errors for
+different combinations.  Debug DrunkCarnivalShooterImpl to remove the errors.
+Now if you play the game, you should not see any defects.
 
 ### Lessons on Model Checking
 
