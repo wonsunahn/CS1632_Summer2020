@@ -17,7 +17,7 @@ public class DrunkCarnivalShooterTest {
 	private boolean[] targets;
 	private String failString; // A descriptive fail string for assertions
 
-	private int targetChoice; // The user inputted target choice to test (can be between 0 - 3)
+	private int targetChoice; // The user inputed target choice to test (can be between 0 - 3)
 
 	/**
 	 * Sets up the test fixture.
