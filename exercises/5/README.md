@@ -202,7 +202,7 @@ When you run Rand with JPF, you can see from the screen output that it goes
 through all possible states, thereby finding the two states with division-by-0
 exception errors (I configured JPF to find all possible errors).  So, now we
 know that there are two defective states, how do we debug?  You will see that
-JPF has generated a trace file named [Rand.trace](Rand.trace) of all the
+JPF has generated a trace file named [Rand.trace](Rand/Rand.trace) of all the
 choices it had made to get to that state.  You will see two traces since there
 are two defective states.  Pay attention to "cur" value of each Random.nextInt
 invocation (that is the choice JPF has made for that invocation).  The first
