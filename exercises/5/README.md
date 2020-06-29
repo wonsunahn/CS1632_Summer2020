@@ -45,7 +45,7 @@ Now the current implementation contains several bugs.  In fact, the game throws
 an exception immediately at start up:
 
 ```
-$ java -cp bin;jpf-core/build/\* DrunkCarnivalShooterImpl
+$ java -cp bin;jpf-core/build/* DrunkCarnivalShooterImpl
 Exception in thread "main" java.lang.NullPointerException
         at DrunkCarnivalShooterImpl.<init>(DrunkCarnivalShooterImpl.java:31)
         at DrunkCarnivalShooterImpl.main(DrunkCarnivalShooterImpl.java:149)
@@ -112,7 +112,7 @@ Audit done.
 SpotBugs output:
 
 ```
-$ java -jar spotbugs-4.0.0-beta4/lib/spotbugs.jar -textui -low -effort:max -longBugCodes bin/\*.class
+$ java -jar spotbugs-4.0.0-beta4/lib/spotbugs.jar -textui -low -effort:max -longBugCodes bin/*.class
 The following classes needed for analysis were missing:
   org.junit.runner.JUnitCore
   org.junit.runner.Result
@@ -125,7 +125,7 @@ debugging the JUnit library, so we did not pass it to SpotBugs.
 After fixing all the warning, now the program should at least start up properly, when run with run.bat:
 
 ```
-$ java -cp bin;jpf-core/build/\* DrunkCarn ivalShooterImpl
+$ java -cp bin;jpf-core/build/* DrunkCarn ivalShooterImpl
 Round #0:  ||    ||    ||    ||
 Choose your target (0-3):
 ```
@@ -133,7 +133,7 @@ Choose your target (0-3):
 Yay!  But we are note done yet.  There are still bugs remaining.  Try repeatedly shooting the first target by choosing 0.
 
 ```
-$ java -cp bin;jpf-core/build/\* DrunkCarn ivalShooterImpl
+$ java -cp bin;jpf-core/build/* DrunkCarn ivalShooterImpl
 Round #0:  ||    ||    ||    ||
 Choose your target (0-3):
 0
