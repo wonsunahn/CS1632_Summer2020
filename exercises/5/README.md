@@ -229,34 +229,48 @@ For Mac/Linux users:
 $ bash runJPF.sh DrunkCarnivalShooter.macos.jpf
 ```
 
-The JPF tool initially doesn't show any errors but that is because
-DrunkCarnivalShooter takes user input and JPF does not know how to handle it.
-Just like random numbers, we would like to have JPF to go over every
-possibility.  We will do that by using the Verify API.  But in order to be able
-to use that feature, we first have to import a library at the top of
+If you run the above, JPF will immediately display an error similar to the following:
+
+```
+====================================================== error 1
+gov.nasa.jpf.vm.NoUncaughtExceptionsProperty
+java.lang.NoSuchMethodException: Calling java.io.InputStreamReader.<init>(Ljava/io/InputStream;Ljava/nio/chars
+et/Charset;)V
+        at java.util.Scanner.makeReadable(java/util/Scanner.java:598)
+        at java.util.Scanner.<init>(java/util/Scanner.java:578)
+        at DrunkCarnivalShooterImpl.main(DrunkCarnivalShooterImpl.java:149)
+```
+
+The exception is thrown when a new Scanner is created.  That is because a
+Scanner scans in user input and JPF is not designed to receive user input from
+the terminal.  Instead, JPF uses a set of APIs under the Verify class
+(gov.nasa.jpf.vm.Verify) to specify user input(s) we want to test.  In order to
+be able to use this feature, we first have to import the class at the top of
 DrunkCarnivalShooterImpl.java:
 
 ```
 import gov.nasa.jpf.vm.Verify;
 ```
 
-Now instead of scanning user input using the following statement:
+Then replace calls to Scanner with calls to Verify only when the commandline
+argument "test" is passed to the program.  The "test" argument will put the
+program in test mode and not in play mode.  You can see "test" is already
+configured as the commandline argument in the target.args entry in
+[DrunkCarnivalShooter.win.jpf](DrunkCarnivalShooter/DrunkCarnivalShooter.win.jpf).
+This will allow us to still play game the game in normal mode.
+
+In test mode, do not create Scanner and instead of scanning user input using
+the following statement:
 
 ```
 int t = scanner.nextInt();
 ```
 
-Exhaustively generate all possible inputs using the Verify API:
+replace it with the following:
 
 ```
 int t = Verify.getInt(0, 3);
 ```
-
-* Invoke Verify instead of Scanner only when a commandline argument "test" is
-  passed to program.  The "test" argument will put the program in test mode and
-not in play mode.  You can see "test" is already configured as the commandline
-argument in the target.args entry in
-[DrunkCarnivalShooter.win.jpf](DrunkCarnivalShooter/DrunkCarnivalShooter.win.jpf).
 
 The above will direct JPF to generate 4 states each where t is set to 0, 1, 2,
 or 3 respectively.  Then it will systematically explore each state.  If you
@@ -265,7 +279,7 @@ generate more states and take longer (the flipside being you will be able to
 model check your program against a larger set of inputs).
 
 Now let's try running runJPF.bat one more time like the above.  This will show
-an error state with an exception:
+a new error message due to an exception:
 
 ```
 ====================================================== error 1
@@ -376,7 +390,7 @@ import gov.nasa.jpf.annotation.FilterField;
 And now, let's annotate roundNum such that it is filtered out:
 
 ```
-@FilterField private static int roundNum;
+@FilterField private int roundNum;
 ```
 
 Now if we run runJPF.bat again, JPF will only go up to Round #2 and stop and declare "no errors detected".
