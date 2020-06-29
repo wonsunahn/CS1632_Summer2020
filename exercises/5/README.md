@@ -165,8 +165,9 @@ Pattern matching can be good at finding simple bugs that are recurrent across
 projects and can even catch errors in your documentation.  What they are not
 good for is finding problems in your program logic (as seen above).  For that,
 you need dynamic testing that actually executes the program to check program
-behavior.  Or, you can use model checking that the proves that certain
-properties hold for all inputs (see next section).
+behavior.  Or, you can use model checking that is able to *prove* that certain
+correctness properties hold for all situations, even for random programs like
+this one (see next section).
 
 ## Applying Java Pathfinder (JPF)
 
@@ -176,8 +177,8 @@ systematic exploration of program state space to check for correctness.
 
 ### Applying JPF on Rand
 
-Let's first try out JPF on the example Rand program we saw on the Formal Verification lecture
-slides:  
+Let's first try out JPF on the example Rand program we saw on "Lecture 16:
+Static Analysis Part 2" slides:  
 
 <img src="jpf.png" width="50%" height="50%">
 
