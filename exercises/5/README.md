@@ -45,7 +45,7 @@ Now the current implementation contains several bugs.  In fact, the game throws
 an exception immediately at start up:
 
 ```
-java -cp bin;jpf-core/build/\* DrunkCarnivalShooterImpl
+$ java -cp bin;jpf-core/build/\* DrunkCarnivalShooterImpl
 Exception in thread "main" java.lang.NullPointerException
         at DrunkCarnivalShooterImpl.<init>(DrunkCarnivalShooterImpl.java:31)
         at DrunkCarnivalShooterImpl.main(DrunkCarnivalShooterImpl.java:149)
