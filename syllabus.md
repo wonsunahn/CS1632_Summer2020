@@ -80,7 +80,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 ## WEEK 9 (Week of 6 JUL)
 
-* [Optional Class] Lecture Q & A
+* [Required Class] In-class Exercise 6: Property-based Testing
 
 * Listen to lectures:
   * Smoke and Exploratory Testing (READING: AFIST, Chapters 10-11)
