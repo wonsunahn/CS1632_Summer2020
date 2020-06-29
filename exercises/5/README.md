@@ -125,7 +125,7 @@ debugging the JUnit library, so we did not pass it to SpotBugs.
 After fixing all the warning, now the program should at least start up properly, when run with run.bat:
 
 ```
-$ java -cp bin;jpf-core/build/* DrunkCarn ivalShooterImpl
+$ java -cp bin;jpf-core/build/* DrunkCarnivalShooterImpl
 Round #0:  ||    ||    ||    ||
 Choose your target (0-3):
 ```
@@ -133,7 +133,7 @@ Choose your target (0-3):
 Yay!  But we are note done yet.  There are still bugs remaining.  Try repeatedly shooting the first target by choosing 0.
 
 ```
-$ java -cp bin;jpf-core/build/* DrunkCarn ivalShooterImpl
+$ java -cp bin;jpf-core/build/* DrunkCarnivalShooterImpl
 Round #0:  ||    ||    ||    ||
 Choose your target (0-3):
 0
