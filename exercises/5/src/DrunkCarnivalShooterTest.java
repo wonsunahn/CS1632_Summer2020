@@ -59,7 +59,7 @@ public class DrunkCarnivalShooterTest {
 	 * Preconditions: Create StringBuilder builder = new StringBuilder();
 	 * Execution steps: Call shooter.shoot(targetChoice, builder);
 	 * Invariant: The number of targets which returns true on shooter.isTargetStanding(i)
-	 *             where i is the target number is equal to shooter.getRemainingTargetNum().
+	 *            where i = 0 ... 3 is equal to shooter.getRemainingTargetNum().
 	 */
 	@Test
 	public void testShoot() {

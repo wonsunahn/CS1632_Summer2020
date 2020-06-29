@@ -145,13 +145,12 @@ public class DrunkCarnivalShooterImpl implements DrunkCarnivalShooter {
 	 *             game with JPF.
 	 */
 	public static void main(String args[]) {
-		int t;
 		DrunkCarnivalShooterImpl shooter = new DrunkCarnivalShooterImpl();
 		Scanner scanner = new Scanner(System.in, "UTF-8");
 		while (true) {
 			System.out.println(shooter.getRoundString());
 			System.out.println("Choose your target (0-3): ");
-			t = scanner.nextInt();
+			int t = scanner.nextInt();
 
 			// Shoot the target
 			StringBuilder builder = new StringBuilder();
