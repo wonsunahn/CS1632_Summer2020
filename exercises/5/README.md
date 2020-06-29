@@ -38,7 +38,7 @@ $ run.bat
 For Mac or Linux:
 
 ```
-$ ./run.sh
+$ bash run.sh
 ```
 
 Now the current implementation contains several bugs.  In fact, the game throws
@@ -225,7 +225,7 @@ $ runJPF.bat DrunkCarnivalShooter.win.jpf
 For Mac/Linux users:
 
 ```
-$ ./runJPF.sh DrunkCarnivalShooter.macos.jpf
+$ bash runJPF.sh DrunkCarnivalShooter.macos.jpf
 ```
 
 The JPF tool initially doesn't show any errors but that is because
@@ -434,7 +434,7 @@ runJPF.bat JUnit.win.jpf
 For Mac or Linux:
 
 ```
-runJPF.sh JUnit.macos.jpf
+bash runJPF.sh JUnit.macos.jpf
 ```
 
 If you peek into JUnit.win.jpf (or JUnit.macos.jpf), you will notice that now
