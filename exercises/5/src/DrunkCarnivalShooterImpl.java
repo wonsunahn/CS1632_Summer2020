@@ -25,7 +25,7 @@ public class DrunkCarnivalShooterImpl implements DrunkCarnivalShooter {
 	DrunkCarnivalShooterImpl() {
 		rand = new Random();
 		targets = new ArrayList<Boolean>();
-		//targets = null;
+		targets = null;
 		remainingTargetNum = 4;
 		for (int i = 0; i < remainingTargetNum; i++) {
 			targets.add(true);
