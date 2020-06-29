@@ -15,119 +15,8 @@ packages for each OS:
 
 https://drive.google.com/drive/folders/1E76H7y2nMsrdiBwJi0nwlzczAgTKKhv7
 
-## SpotBugs and CheckStyle
+## DrunkCarnivalShooter
 
-SpotBugs: https://spotbugs.github.io/  
-CheckStyle: https://checkstyle.sourceforge.io/  
-
-Try running both tools on a Sieve of Eratosthenes program, and then fix any
-issues found.  This will allow you to see what kinds of bugs a static analysis
-program can find (and which ones it cannot).
-
-The Sieve of Eratosthenes is an ancient way of finding all prime numbers below
-a specific value.  For details on the algorithm itself, please see
-https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes.
-
-This program accepts one integer value and will tell you all prime numbers up
-to and including the passed-in value.  However, there are some problems hidden
-in the code.  You are going to use SpotBugs and CheckStyle to find and fix
-them.  Some problems are actual defects and some are just bad or confusing
-code.
-
-I have prepared scripts to run or test the program.  First cd into the Sieve
-directory before executing the scripts.
-
-To run the program (for Windows users):
-```
-$ run.bat [Integer]
-```
-To run SpotBugs:
-```
-$ runSpotbugs.bat
-```
-To run CheckStyle:
-```
-$ runCheckstyle.bat
-```
-
-For Mac or Linux users, please run the corresponding .sh scripts.
-
-* There is a GUI for SpotBugs if that is what you prefer.  You can launch the GUI by using the following command:
-```
-$ java -jar spotbugs-4.0.0-beta4/lib/spotbugs.jar
-```
-The following link contains a short tutorial on how to use the GUI:
-https://spotbugs.readthedocs.io/en/latest/gui.html
-
-If all goes well you should see the following output:
-
-```
-$ java Sieve 100
-Sieve of Eratosthenes
-> 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
-
-$ java Sieve 14
-Sieve of Eratosthenes
-> 2 3 5 7 11 13
-```
-
-Note that there is a bug in the logic of the code that is not caught by either
-SpotBugs or CheckStyle that will prevent you from getting the above output.  For example, the argument 100 will show the following:
-```
-$ java Sieve 100
-Sieve of Eratosthenes
-> 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 99
-```
-Locate the problem by reviewing the code and fix the problem.
-
-### Lessons on Pattern Matching
-
-Both linters (CheckStyle) and bug finders (SpotBugs) work by pattern matching.  Pattern matching can be good at finding simple bugs that are recurrent across projects and can even catch errors in your documentation.  What they are not good for is finding problems in your program logic (as seen above).  For that, you need dynamic testing that actually executes the program to check program behavior.  Or, you can use model checking that the proves that certain properties hold for all inputs (see below).
-
-## Java Pathfinder (JPF)
-
-Java Pathfinder is a tool developed by NASA to model check Java programs.  It
-works in exactly the same way we learned in class: it does an exhaustive and
-systematic exploration of program state space to check for correctness.
-
-### JPF on Rand
-
-Let's first try out JPF on the example Rand program we saw on the Formal Verification lecture
-slides:  
-
-<img src="jpf.png" width="50%" height="50%">
-
-First cd into the Rand directory before executing the scripts.
-
-To run the Rand program (for Windows users):
-```
-$ run.bat
-```
-To run JPF with Rand:
-```
-$ runJPF.bat
-```
-
-For Mac or Linux users, please run the corresponding .sh scripts.
-
-When you run Rand with JPF, you can see from the screen output that it goes
-through all possible states, thereby finding the two states with division-by-0
-exception errors (I configured JPF to find all possible errors).  So, now we
-know that there are two defective states, how do we debug?  You will see that
-JPF has generated a trace file named [Rand.trace](Rand.trace) of all the
-choices it had made to get to that state.  You will see two traces since there
-are two defective states.  Pay attention to "cur" value of each Random.nextInt
-invocation (that is the choice JPF has made for that invocation).  The first
-trace shows values of 0, 2 for a, b and the second trace shows cur values of 1,
-1 for a, b.  These are exactly the values that would cause a division-by-0
-exception at c = a/(b+a -2).  In this way, the trace file lets you easily trace
-through the code to get to the defective state.
-
-### JPF on DrunkCarnivalShooter
-
-First cd into the DrunkCarnivalShooter folder.
-
-Now let's try using JPF to debug and verify a real program.
 DrunkCarnivalShooter is a simple text-based game where the player goes to a
 carnival shooting range and tries to win the prize by shooting all 4 provied
 targets.  The player can designate what target to shoot for pressing 0-3.  But
@@ -152,23 +41,194 @@ For Mac or Linux:
 $ ./run.sh
 ```
 
-Now the current implementation contains a couple of bugs.  You will notice
-immediately after playing the game once or twice.  The bug does not manifest in
-a deterministic way due to the randomness but you will notice soon enough.
+Now the current implementation contains several bugs.  In fact, the game throws
+an exception immediately at start up:
 
-So now let's use the JPF tool to try find some defects!
+```
+java -cp bin;jpf-core/build/\* DrunkCarnivalShooterImpl
+Exception in thread "main" java.lang.NullPointerException
+        at DrunkCarnivalShooterImpl.<init>(DrunkCarnivalShooterImpl.java:31)
+        at DrunkCarnivalShooterImpl.main(DrunkCarnivalShooterImpl.java:149)
+```
+
+In this exercise, we are going to try to debug the program using static
+analysis instead of dynamic testing.  So now let's go and try to find some
+defects!
+
+## Applying SpotBugs and CheckStyle
+
+Try running both tools on DrunkCarnivalShooterImpl.java.  As usual, I've
+provided scripts to run each tool.
+
+To run CheckStyle (Windows users):
+
+```
+$ runCheckstyle.bat
+```
+
+To run CheckStyle (Mac/Linux users):
+
+```
+$ bash runCheckstyle.sh
+```
+
+To run SpotBugs (Windows users):
+
+```
+$ runSpotbugs.bat
+```
+
+To run SpotBugs (Mac/Linux users):
+
+```
+$ bash runSpotbugs.sh
+```
+
+CheckStyle and Spotbugs should print out several warnings each.  Refer to the
+below references to find out what each warning means at fix your code at the
+corresponding source code line:
+
+* CheckStyle reference: https://checkstyle.sourceforge.io/checks.html  
+If you don't understand a CheckStyle warning, read the corresponding entry inside google\_checks\_modified.xml under the checkstyle-jars folder and the above reference.
+
+* SpotBugs reference: https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html
+* There is a GUI for SpotBugs if that is what you prefer.  You can launch the GUI by using the following command:
+```
+$ java -jar spotbugs-4.0.0-beta4/lib/spotbugs.jar
+```
+The following link contains a short tutorial on how to use the GUI:
+https://spotbugs.readthedocs.io/en/latest/gui.html
+
+After removing all warnings, you should see the following ouput for each.
+
+Checkstyle output:
+
+```
+$ java -jar checkstyle-jars /checkstyle-7.0-all.jar -c checkstyle-jars/google_checks_modified.xml src/DrunkCarnivalShooterImpl.java
+Starting audit...
+Audit done.
+```
+
+SpotBugs output:
+
+```
+$ java -jar spotbugs-4.0.0-beta4/lib/spotbugs.jar -textui -low -effort:max -longBugCodes bin/\*.class
+The following classes needed for analysis were missing:
+  org.junit.runner.JUnitCore
+  org.junit.runner.Result
+  org.junit.runner.notification.Failure
+```
+
+The missing classes are JUnit library classes.  We are not interested in
+debugging the JUnit library, so we did not pass it to SpotBugs.
+
+After fixing all the warning, now the program should at least start up properly, when run with run.bat:
+
+```
+$ java -cp bin;jpf-core/build/\* DrunkCarn ivalShooterImpl
+Round #0:  ||    ||    ||    ||
+Choose your target (0-3):
+```
+
+Yay!  But we are note done yet.  There are still bugs remaining.  Try repeatedly shooting the first target by choosing 0.
+
+```
+$ java -cp bin;jpf-core/build/\* DrunkCarn ivalShooterImpl
+Round #0:  ||    ||    ||    ||
+Choose your target (0-3):
+0
+
+...
+
+Round #3:        ||    ||    ||
+Choose your target (0-3):
+0
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: -1
+        at java.util.ArrayList.elementData(ArrayList.java:422)
+        at java.util.ArrayList.get(ArrayList.java:435)
+        at DrunkCarnivalShooterImpl.isTargetStanding(DrunkCarnivalShooterImpl.java:125)
+        at DrunkCarnivalShooterImpl.takeDownTarget(DrunkCarnivalShooterImpl.java:108)
+        at DrunkCarnivalShooterImpl.shoot(DrunkCarnivalShooterImpl.java:89)
+        at DrunkCarnivalShooterImpl.main(DrunkCarnivalShooterImpl.java:158)
+```
+
+The bug does not manifest in a deterministic way due to the randomness but you
+will trigger it soon enough.  Or you may encounter another bug where the game
+ends prematurely even when there are targets remaining.  These bugs are bugs in
+the logic of the program and SpotBugs is not very good at finding these types
+of bugs.  It only finds bugs that match a certain pattern.
+
+### Lessons on Pattern Matching
+
+Both linters (CheckStyle) and bug finders (SpotBugs) work by pattern matching.
+Pattern matching can be good at finding simple bugs that are recurrent across
+projects and can even catch errors in your documentation.  What they are not
+good for is finding problems in your program logic (as seen above).  For that,
+you need dynamic testing that actually executes the program to check program
+behavior.  Or, you can use model checking that the proves that certain
+properties hold for all inputs (see next section).
+
+## Applying Java Pathfinder (JPF)
+
+Java Pathfinder is a tool developed by NASA to model check Java programs.  It
+works in exactly the same way we learned in class: it does an exhaustive and
+systematic exploration of program state space to check for correctness.
+
+### Applying JPF on Rand
+
+Let's first try out JPF on the example Rand program we saw on the Formal Verification lecture
+slides:  
+
+<img src="jpf.png" width="50%" height="50%">
+
+First cd into the Rand directory before executing the scripts.
+
+To run the Rand program (for Windows users):
+
+```
+$ run.bat
+```
+
+To run JPF with Rand:
+
+```
+$ runJPF.bat Rand.jpf
+```
+
+For Mac or Linux users, please run the corresponding .sh scripts.
+
+When you run Rand with JPF, you can see from the screen output that it goes
+through all possible states, thereby finding the two states with division-by-0
+exception errors (I configured JPF to find all possible errors).  So, now we
+know that there are two defective states, how do we debug?  You will see that
+JPF has generated a trace file named [Rand.trace](Rand.trace) of all the
+choices it had made to get to that state.  You will see two traces since there
+are two defective states.  Pay attention to "cur" value of each Random.nextInt
+invocation (that is the choice JPF has made for that invocation).  The first
+trace shows values of 0, 2 for a, b and the second trace shows cur values of 1,
+1 for a, b.  These are exactly the values that would cause a division-by-0
+exception at c = a / (b + a - 2).  In this way, the trace file lets you easily trace
+through the code to get to the defective state.
+
+### Applying JPF on DrunkCarnivalShooter
+
+Now let's cd out of the Rand directory to the root directory to once again work
+on DrunkCarnivalShooter.  The following script applies JPF to
+DrunkCarnivalShooter.
+
+For Windows users:
 
 ```
 $ runJPF.bat DrunkCarnivalShooter.win.jpf
 ```
 
-For Mac or Linux:
+For Mac/Linux users:
 
 ```
 $ ./runJPF.sh DrunkCarnivalShooter.macos.jpf
 ```
 
-The JPF tool also doesn't show any errors but that is because
+The JPF tool initially doesn't show any errors but that is because
 DrunkCarnivalShooter takes user input and JPF does not know how to handle it.
 Just like random numbers, we would like to have JPF to go over every
 possibility.  We will do that by using the Verify API.  But in order to be able
@@ -219,9 +279,10 @@ java.lang.ArrayIndexOutOfBoundsException: -1
 ...
 ```
 
-Use the trace generated as part of the output to find the input value(s) and
-the random value(s) that led to the exception.  Interpret it in the same way
-you did Rand.trace.  The trace should look like:
+Wait, this is the same exception that we randomly experienced previously!  Use
+the trace generated as part of the output to find the input value(s) and the
+random value(s) that led to the exception.  Interpret it in the same way you
+did Rand.trace.  The trace should look like:
 
 ```
 ====================================================== trace #1
@@ -240,11 +301,35 @@ gov.nasa.jpf.vm.choice.IntIntervalGenerator[id="verifyGetInt(II)",isCascaded:fal
 ...
 ```
 
-What would be the first choice interval 0..3?  It would be the Verify.getInt(0,
-3), and in the trace it returned 0.  What would be the second choice interval
-0..2?  It would be the rand.nextInt(3) used to add randomness to the shooting
-target, and in the trace it also returned 0.  That should help you track down
-the problem.
+Now let's try to break down that trace.  A transition happens in the course of
+travering the program state space.  Whenever there is a "choice" between one
+more program states, a transition is recorded with the selected choice.  When
+is JPF presented with a choice?
+
+1. When it encounters Verify.getInt, it is presented with a range of user
+   inputs each of which represents a separate path that JPF can take.  Same
+thing applies to all the other Verify APIs.
+
+1. When it encounters Random.nextInt, it is presented with a range of random
+   values that the random number generator can return, each of each again
+represents a different program state.
+
+1. When the program is multithreaded (parallel), JPF is also presented at each
+   instruction with a choice of whether to context switch and execute another
+thread.  This is what transition #0 is.  This is how JPF can exhaustively
+explore all thread interleavings.  If you don't know what that means, don't
+worry about it.  It is beyond the scope of this class.  Feel free to ask if you
+are curious :).
+
+In the above trace, it is important to understand transitions #2 and #3.  What
+would be transition #2 with choice interval 0..3?  It would be the
+Verify.getInt(0, 3) that replaced the scan of user input.  And according to the
+trace it returned 0 ("cur=0").  What would be transition #3 with choice
+interval 0..2?  It would be the rand.nextInt(3) used to add randomness to the
+shooting target, and in the trace it also returned 0 ("cur=0").  So it's the
+case where the user chose target 0 and the randomness of the shooting pulled
+the bullet to the left.  What's on the left side of target 0?  That should help
+you track down the problem.
 
 Once you fix these bugs, try running runJPF.bat one more time.  Now that you
 have fixed the buggy state JPF runs for much longer.  In fact, JPF is going to
@@ -337,7 +422,7 @@ possible user inputs if the Verify API is used.
 
 We will choose the latter option.
 
-### JPF on JUnit on DrunkCarnivalShooter
+### Applying JPF on JUnit to Unit Test DrunkCarnivalShooter
 
 Now we are not systems testing DrunkCarnivalShooter.  We want to invoke JUnit
 on DrunkCarnivalShooter.  The script to do that is as follows:
