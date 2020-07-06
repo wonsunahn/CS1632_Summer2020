@@ -6,7 +6,9 @@
     + [Skill Mode](#skill-mode)
     + [Text UI Mode](#text-ui-mode)
   * [What to do](#what-to-do)
+    + [Plain JUnit Testing](#plain-junit-testing)
     + [Model Checking Using JUnit](#model-checking-using-junit)
+    + [Add an Extra Invariant Test](#add-an-extra-invariant-test)
     + [Coding](#coding)
     + [Static Testing](#static-testing)
     + [Manual System Testing](#manual-system-testing)
@@ -266,6 +268,16 @@ coordinates of Beans are translated to physical coordinates.
 
 * <Some>Button.java - GUI buttons at the bottom of the main frame, along with
   event handlers when the button is pressed.
+
+* BeanCounterSolution.jar - The solution implementation of bean counter.
+
+* BeanCounterBuggy.jar - A buggy implementation of bean counter.
+
+* compile.bat / compile.sh - Scripts to compile Java source code to bytecode.
+
+* runJUnit\*.bat / runJUnit\*.sh - Scripts to run JUnit tests on bean machine.
+
+* runJPF\*.bat / runJPF\*.sh - Scripts to run JUnit tests on bean machine with JPF enabled.
 
 You are asked to fill in and modify 3 files: BeanCounterLogicImpl.java,
 BeanImpl.java, BeanCounterLogicTest.java.  The first two files complete the
