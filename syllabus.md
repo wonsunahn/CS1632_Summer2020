@@ -48,7 +48,6 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 * Midterm 1: Sunday (6/14) 10:00 AM - Monday (6/15) 6:00 PM on GradeScope
   * Take home exam submitted online
   * Open book but individual work
-  * TopHat questions will not be available during the exam period
   * Will not take any questions whatsoever about lecture material during this period
 
 ## WEEK 6 (Week of 15 JUN)
@@ -91,7 +90,7 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 * [Optional Class] Midterm 2 review
   * Deliverable 4 due 06:00 PM
   
-* Friday 10:00 AM: Midterm 2 released due same day 11:59 PM
+* Midterm 2: Sunday (7/19) 10:00 AM - Monday (7/20) 6:00 PM on GradeScope
   * Take home exam submitted online
   * Open book but individual work
   * Will not take any questions whatsoever about lecture material during this period
