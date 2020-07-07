@@ -29,7 +29,7 @@ Due to the grading deadline, there is no late submission.
 For this final deliverable, you will develop a full-fledged GUI program (with
 the help of some skeleton code), along with various tests.  Don't worry if you
 don't know GUI programming --- that part has already been done for you.  In
-addition, there is a [Text UI mode]((#text-ui-mode) that you can use to test
+addition, there is a [Text UI mode](#text-ui-mode) that you can use to test
 and debug most of your program.
 
 All the projects so far have used some form of dynamic testing.  In this
@@ -195,7 +195,7 @@ method.  This main() method is used to provide a rudimentary text user
 interface.  You can invoke it by doing:
 
 ```
-java -cp BeanCounterSolution.jar BeanCounterLogicImpl 10 500 luck debug
+java -cp BeanCounterSolution.jar BeanCounterLogicSolution 10 500 luck debug
 ```
 
 This is the usage information that gets printed when you don't pass any arguments:
@@ -769,20 +769,14 @@ points.  Also, plagiarism will get you a zero for the project.
 
 ## Submission
 
-This is an individual submission.  Do not work together with your partner in
-any manner.  You are free to discuss and shared code for your exercises with
-your partner (or any other student), and that is the extent to which you should
-collaborate.  If you know how to do the exercises, there is no reason you
-should have difficulty.
-
 You will create a GitHub repository just for deliverable 5.  Make sure you keep
 the repository *PRIVATE* so that nobody else can access your repository.  Once
 you are done modifying code, don't forget to commit and push your changes to
 the github repository.  Submit your GitHub repository to GradeScope at the
-"Deliverable 5 GitHub" link.  Once you submit, GradeScope will run the
-autograder to grade you and give feedback.  If you get deductions, fix your
-code based on the feedback and resubmit.  Repeat until you don't get
-deductions.
+"Deliverable 5 GitHub" link.  Don't forget to add your partner, if you have one.
+Once you submit, GradeScope will run the autograder to grade you and give feedback.
+If you get deductions, fix your code based on the feedback and resubmit.  Repeat
+until you don't get deductions.
 
 ## GradeScope Feedback
 
