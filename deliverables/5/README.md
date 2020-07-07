@@ -22,7 +22,7 @@ Summer Semester 2020
 
 DUE: July 31, 2020 06:00 PM
 
-Due to the grading deadline, there is no late submission.
+Due to the grading deadline, there is no late submission.  Please work with your partner to complete the project, if you have one.
 
 ## Overview
 
