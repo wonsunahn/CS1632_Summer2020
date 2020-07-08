@@ -233,8 +233,10 @@ will see the same JUnit output given on the GradeScope feedback.
 
     Just because you got PASSED for both, it does not mean that you are
 guaranteed to get points for that rubric item.  You may have passed simply
-because you did not yet write the relevant test!  But if you wrote the tests
-and you see FAILED, then you most definitely have a problem.
+because you did not yet write the relevant test!  So in the end, points will
+be assigned through manual grading (hence the 0 points assigned in the
+autograder).  But if you wrote the tests and you see FAILED, then you most
+definitely have a problem.
 
 ## Resources
 
