@@ -181,13 +181,60 @@ feedback you get on each submission to improve your code!
 The GradeScope autograder works in 3 phases:
 
 1. GameOfLife method performance tests (45.0):
-   I run performance tests on each of the three methods you should optimize.  If any of those methods time out after 10 ms, you get a -15 deduction.
+
+    I run performance tests on each of the three methods you should
+optimize.  If any of those methods time out after 10 ms, you get a -15
+deduction.
 
 1. GameOfLife method pinning tests (15.0):
-   I run my own pinning tests on each of the three methods you should optimize.  These pinning tests pass without you having to do anything (obviously because they are meant to test existing behavior of legacy code).  And they should stay that way.  If any of the pinning tests fail, you get a -5 deduction.
+
+    I run my own pinning tests on each of the three methods you should
+optimize.  These pinning tests pass without you having to do anything
+(obviously because they are meant to test existing behavior of legacy code).
+And they should stay that way.  If any of the pinning tests fail, you get a
+-5 deduction.
 
 1. GameOfLifePinningTest method tests (15.0):
-   I run the pinning tests you wrote (GameOfLifePinningTest) on your implementation.  If any of the pinning tests fail, you get a -5 deduction.
+
+    I run the pinning tests you wrote (GameOfLifePinningTest) on your
+implementation.  If any of the pinning tests fail, you get a -5 deduction.
+
+1. GameOfLifePinningTest Mocking and Behavior Verification (0.0):
+
+    This section gives you feedback on whether you did proper mocking and
+behavior verification.  It does three test runs using your
+GameOfLifePinningTest: 1) A test run on a defect-free implementation, 2) A
+test run on GameOfLifeBuggy.jar with a bug injected into a mocked object,
+and 3) A test run on GameOfLifeBuggy.jar with a bug injected into a method
+that can only be tested using behavior verification.
+
+    If you did a good job, the bug injected into the mocked object should
+not cause any additional test failures since mocked object methods are never
+executed (stubs are executed instead).  On the other hand, the bug injected
+into the method tested using behavior verification should result in an
+additional failure due to the behavior change.  If all goes well, you should
+see the followimg lines at the end of this section:
+
+    ```
+    PASSED (5/5): Bug injected into mocked object did not cause additional test failures.
+    PASSED (5/5): Behavior verification correctly detected change in behavior.
+    ```
+
+    If you see FAILED instead, you need to fix your tests.
+GameOfLifeBuggy.jar is included in the repository if you want to do further
+testing.  Try running runBuggyMock.bat and runBuggyBehavior.bat, to execute
+the JAR file with mocked object bug injection and behavior verification
+method bug injection respectively (Mac/Linux users can run the *.sh
+versions).  If you try the vertical bar blinker patter specified on
+GameOfLifePinningTest.java, you will immediately see that it is defective.
+You can also try running your GameOfLifePinningTest on the buggy
+implementation using runTestBuggyMock.bat and runTestBuggyBehavior.bat.  You
+will see the same JUnit output given on the GradeScope feedback.
+
+    Just because you got PASSED for both, it does not mean that you are
+guaranteed to get points for that rubric item.  You may have passed simply
+because you did not yet write the relevant test!  But if you wrote the tests
+and you see FAILED, then you most definitely have a problem.
 
 ## Resources
 

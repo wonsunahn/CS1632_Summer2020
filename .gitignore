@@ -3,3 +3,4 @@
 *.swp
 *.md~
 *.class
+.DS_Store
