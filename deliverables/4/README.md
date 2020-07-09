@@ -134,6 +134,14 @@ class is named GameOfLifePinningTest, the methods you test will not necessarily
 come from the GameOfLife class.  You will create whatever objects from whatever
 classes are necessary to test the three refactored methods.
 
+Just like for Deliverable 2, you can add a Java stack trace to the error
+message to get information about why your tests are failing by inserting
+the following line below TestRunner.java line 24:
+
+```
+System.out.println(f.getTrace());
+```
+
 ## Report Format
 
 Please use the ReportTemplate.docx file provided in this directory to write
