@@ -97,10 +97,10 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 ## WEEK 11 (Week of 20 JUL)
 
-* [Required Class] PNC Bank Guest Lecture
+* [Required Class] [NetApp](https://www.netapp.com/) Guest Lecture
 
 ## WEEK 12 (Week of 27 JUL)
 
-* [Optional Class] Help with final project
+* [Optional Class] [CGI](https://www.cgi.com/en) Guest Lecture
 
 * Deliverable 5 due Friday 06:00 PM
