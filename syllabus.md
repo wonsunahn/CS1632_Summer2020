@@ -101,6 +101,6 @@ AFIST = [_A Friendly Introduction to Software Testing_](software-quality-assuran
 
 ## WEEK 12 (Week of 27 JUL)
 
-* [Optional Class] [CGI](https://www.cgi.com/en) Guest Lecture
+* [Required Class] [CGI](https://www.cgi.com/en) Guest Lecture
 
 * Deliverable 5 due Friday 06:00 PM
