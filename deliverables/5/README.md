@@ -570,34 +570,33 @@ for all the different machine configurations:
     $ bash runJPFSolution.sh BeanCounter.macos.jpf
     ```
 
-    Again, BeanCounterLogicSolution is defect-free, so you should ssee no failures:
+    Again, BeanCounterLogicSolution is defect-free, so you should see no failures:
 
     ```
     JavaPathfinder core system v8.0 (rev 471fa3b7c6a9df330160844e6c2e4ebb4bf06b6c) - (C) 2005-2014 United States Government. All rights reserved.
-
-
+    
+    
     ====================================================== system under test
     TestRunner.main("solution","jpf")
-
-    ====================================================== search started: 7/6/20 4:14 PM
+    
+    ====================================================== search started: 7/23/20 2:53 PM
     TESTING SOLUTION IMPLEMENTATION WITH JPF ON JUNIT
-
-    Failure in (slotCount=0, beanCount=0, isLucky=false):
-
+    
+    
     ====================================================== results
     no errors detected
-
+    
     ====================================================== statistics
-    elapsed time:       00:00:00
-    states:             new=2,visited=0,backtracked=2,end=1
-    search:             maxDepth=2,constraints=0
-    choice generators:  thread=2 (signal=0,lock=1,sharedRef=0,threadApi=0,reschedule=1), data=0
-    heap:               new=3247,released=1168,maxLive=1701,gcCycles=2
-    instructions:       80664
-    max memory:         245MB
-    loaded code:        classes=330,methods=4560
-
-    ====================================================== search finished: 7/6/20 4:14 PM
+    elapsed time:       00:00:06
+    states:             new=4161,visited=3533,backtracked=7694,end=468
+    search:             maxDepth=65,constraints=0
+    choice generators:  thread=3 (signal=0,lock=1,sharedRef=0,threadApi=0,reschedule=2), data=3839
+    heap:               new=384143,released=243001,maxLive=2325,gcCycles=7669
+    instructions:       15039902
+    max memory:         700MB
+    loaded code:        classes=334,methods=4665
+    
+    ====================================================== search finished: 7/23/20 2:53 PM
     ```
 
 1. To test the BeanCounterLogicBuggy implementation on Windows:
