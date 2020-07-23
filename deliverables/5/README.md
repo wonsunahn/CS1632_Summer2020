@@ -617,10 +617,10 @@ for all the different machine configurations:
 
 
     ====================================================== system under test
-    TestRunner.main("buggy")
+    TestRunner.main("buggy","jpf")
 
     ====================================================== search started: 3/28/20 3:24 AM
-    TESTING BUGGY IMPLEMENTATION
+    TESTING BUGGY IMPLEMENTATION WITH JPF ON JUNIT
 
     testAdvanceStepCoordinates(BeanCounterLogicTest): Failure in (slotCount=2, beanCount=1, isLucky=true):
     testLowerHalf(BeanCounterLogicTest): Failure in (slotCount=2, beanCount=3, isLucky=false): expected:<2> but was:<1>
@@ -633,14 +633,14 @@ for all the different machine configurations:
     no errors detected
 
     ====================================================== statistics
-    elapsed time:       00:00:07
+    elapsed time:       00:00:06
     states:             new=4155,visited=3529,backtracked=7684,end=467
     search:             maxDepth=65,constraints=0
     choice generators:  thread=3 (signal=0,lock=1,sharedRef=0,threadApi=0,reschedule=2), data=3834
-    heap:               new=383264,released=241705,maxLive=2274,gcCycles=7659
-    instructions:       15145859
+    heap:               new=383657,released=242713,maxLive=2321,gcCycles=7659
+    instructions:       15150745
     max memory:         700MB
-    loaded code:        classes=339,methods=4699
+    loaded code:        classes=343,methods=4714
 
     ====================================================== search finished: 3/28/20 3:24 AM
     ```    
