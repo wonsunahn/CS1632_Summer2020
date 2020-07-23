@@ -602,7 +602,7 @@ for all the different machine configurations:
 1. To test the BeanCounterLogicBuggy implementation on Windows:
 
     ```
-    $ runJPFBuggy .bat BeanCounter.win.jpf
+    $ runJPFBuggy.bat BeanCounter.win.jpf
     ```
     Or on Mac or Linux:
 
