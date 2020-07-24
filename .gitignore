@@ -4,3 +4,4 @@
 *.md~
 *.class
 .DS_Store
+*.java~
