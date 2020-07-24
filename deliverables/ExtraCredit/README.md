@@ -4,7 +4,8 @@ Summer Semester 2020 - Extra Credit
 
 * DUE: August 2, 2020 11:59 PM
 
-This is a continuation of [Exercise 4 Performance Testing](../../exercises/4).  We are going to
+This is a continuation of [Exercise 4 Performance Testing](../../exercises/4)
+and [Exercise 6 Property-based Testing](../../exercises/6).  We are going to
 further optimize MonkeySim using VisualVM profiling and then we will be at a
 position where the program is fast enough for stochastic testing.
 
