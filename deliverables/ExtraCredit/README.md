@@ -4,7 +4,7 @@ Summer Semester 2020 - Extra Credit
 
 * DUE: August 2, 2020 11:59 PM
 
-This is a continuation of Exercise 4 Performance Testing.  We are going to
+This is a continuation of [Exercise 4 Performance Testing](../../exercises/4).  We are going to
 further optimize MonkeySim using VisualVM profiling and then we will be at a
 position where the program is fast enough for stochastic testing.
 
@@ -98,7 +98,7 @@ testMainStochastic(MonkeySimTest): Property named 'testMainStochastic' failed (E
 With arguments: [<SHRUNK_ANSWER_NUMBER>]
 Original failure message: Error: Infinite loop exception thrown
 First arguments found to also provoke a failure: [<ORIGINAL_ANSWER_NUMBER>]
-Seeds for reproduction: [-6127764874438509673]
+Seeds for reproduction: [<SEED_NUMBER>]
 
 !!! - At least one failure, see above.
 ```
