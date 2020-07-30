@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
 
 import static org.junit.Assert.*;
 
@@ -21,6 +23,9 @@ public class MonkeySimTest {
 	private ByteArrayOutputStream out;
 	private PrintStream stdout;
 
+	@Rule
+    public Timeout globalTimeout = Timeout.millis(10000);
+	
 	@Before
 	public void setUp() {
 		out = new ByteArrayOutputStream();
@@ -34,8 +39,8 @@ public class MonkeySimTest {
 	}
 
 	/**
-	 * Preconditions: None
-	 * Execution steps: Call MonkeySim.main("s")
+	 * Preconditions: MonkeySim.verbose == true
+	 * Execution steps: Call MonkeySim.main("5")
 	 * Postconditions: System output is equal to:
 	 *                 //Round 1: Threw banana from Monkey (#5 / ID 223497) to Monkey (#16 / ID 223508)\n
 	 *                 //Round 2: Threw banana from Monkey (#16 / ID 223508) to Monkey (#8 / ID 223500)\n
@@ -62,9 +67,21 @@ public class MonkeySimTest {
 						+ "Completed in 5 rounds." + nl,
 				out.toString());
 	}
+	
+	/**
+	 * Preconditions: MonkeySim.verbose == false
+	 * Execution steps: Call MonkeySim.main("1000000")
+	 * Postconditions: Method returns before timeout of 100 ms.
+	 */
+	@Test(timeout=100)
+	public void testMain1000000() throws InfiniteLoopException {
+		MonkeySim.verbose = false;
+		
+		MonkeySim.main(new String[] { Integer.toString(1000000) });
+	}
 
 	/**
-	 * Preconditions: None
+	 * Preconditions: MonkeySim.verbose == false
 	 * Execution steps: Call MonkeySim.main("s")
 	 * Postconditions: Call terminates without the InfiniteLoopException thrown 
 	 * 
@@ -81,7 +98,7 @@ public class MonkeySimTest {
 	}
 	
 	/**
-	 * Preconditions: None
+	 * Preconditions: MonkeySim.verbose == false
 	 * Execution steps: Call MonkeySim.main("<FILL_IN_YOUR_NUMBER>")
 	 * Postconditions: Call terminates without the InfiniteLoopException thrown 
 	 */
