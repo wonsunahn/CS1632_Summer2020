@@ -24,7 +24,7 @@ public class MonkeySimTest {
 	private PrintStream stdout;
 
 	@Rule
-    public Timeout globalTimeout = Timeout.millis(10000);
+	public Timeout globalTimeout = Timeout.millis(10000);
 	
 	@Before
 	public void setUp() {
