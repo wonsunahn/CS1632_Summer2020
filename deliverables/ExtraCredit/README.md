@@ -72,10 +72,17 @@ you do all modifications to MonkeySim.  You can run MonkeySimTest using the scri
     ```
     For Mac/Linux machines.
 
-3. Modify the MonkeySim implementation such that the InfiniteLoopException is
+3. I have also written a performance test for you MonkeySimTest.java with the
+   method name testMain1000000.  It tests the main method with the command line
+argument 1000000.  It has a timeout of 100 milliseconds and tests whether the
+program can handle such a large number of monkeys within just 100 milliseconds.
+This performance test needs to pass in order for the program to be fast enough
+for stochastic testing, where much larger numbers will be passed.
+
+4. Modify the MonkeySim implementation such that the InfiniteLoopException is
    thrown in the main() method when a cycle among monkeys is detected.
 
-4. Implement the testMainStochastic(int s) method in MonkeySimTest.java
+5. Implement the testMainStochastic(int s) method in MonkeySimTest.java
    according to the comments.  Once you implement this, run JUnit again using
 either runTest.bat or runTest.sh.  QuickCheck will do 100 random trials on
 testMainStochastic to find the argument that triggers the InfiniteLoopException
@@ -85,7 +92,7 @@ trials.  You may find that your MonkeySim implementation is too slow to
 complete the trials within a reasonable amount of time.  Then you need to loop
 back to Step 1 and further optimize MonkeySim.
 
-5. Once you find *a* number that triggers the infinite loop, complete
+6. Once you find *a* number that triggers the infinite loop, complete
    testMainInfiniteLoop() in MonkeySimTest.java by writing a regular JUnit test
 that triggers that infinite loop by using that number.  The test should catch
 the resulting InfiniteLoopException and assert fail, failing the test.
@@ -120,6 +127,30 @@ you are done modifying code, don't forget to commit and push your changes to
 the github repository.  When you are done, submit your github repository to
 GradeScope at the "ExtraCredit GitHub" link.  
 
-As of now, the autograder for the extra credit is under construction.  I will
-make another announcement when the autograder is up and running.  Once the
-autograder is complete, it will regrade all existing submissions.
+## GradeScope Feedback
+
+The GradeScope autograder works in 5 phases:
+
+1. MonkeySim method pinning tests
+
+This is the testMain5() test in MonkeySimTest.java.
+
+2. MonkeySim method performance tests
+
+This is the testMain1000000() test in MonkeySimTest.java.
+
+3. MonkeySimTest on MonkeySim
+
+This is the result of running testMainStochastic and testMainInfiniteLoop on
+your MonkeySim implementation.  Both tests are expected to fail with an
+infinite loop exception.  Make sure you use the "Error: Infinite loop exception
+thrown" fail string in your JUnit assertion for GradeScope to work properly.
+
+The pinning test is a sanity test to make sure you did not illegally modify
+existing behavior.  If that test fails, you automatically get a 0.  Otherwise,
+the score you see on the autograder is the score you will get for the extra
+credit.  That means, you can get partial credit for performance optimization
+even if your property-based tests don't work and vice-versa.  I *will* do a
+manual check on your code to make sure you properly followed instructions and
+you didn't try to game GradeScope and will deduct points from the "Deductions"
+rubric on GradeScope.
