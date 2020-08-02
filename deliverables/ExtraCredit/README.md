@@ -73,11 +73,12 @@ you do all modifications to MonkeySim.  You can run MonkeySimTest using the scri
     For Mac/Linux machines.
 
 3. I have also written a performance test for you MonkeySimTest.java with the
-   method name testMain1000000.  It tests the main method with the command line
-argument 1000000.  It has a timeout of 100 milliseconds and tests whether the
-program can handle such a large number of monkeys within just 100 milliseconds.
-This performance test needs to pass in order for the program to be fast enough
-for stochastic testing, where much larger numbers will be passed.
+   method name testMainPerformance.  It tests the main method with the command
+line argument 1000000.  It has a timeout of 100 milliseconds and tests whether
+the program can handle such a large number of monkeys within just 100
+milliseconds.  This performance test needs to pass in order for the program to
+be fast enough for stochastic testing, where much larger numbers will be
+passed.
 
 4. Modify the MonkeySim implementation such that the InfiniteLoopException is
    thrown in the main() method when a cycle among monkeys is detected.
@@ -137,7 +138,7 @@ This is the testMain5() test in MonkeySimTest.java.
 
 2. MonkeySim method performance tests
 
-This is the testMain1000000() test in MonkeySimTest.java.
+This is the testMainPerformance() test in MonkeySimTest.java.
 
 3. MonkeySimTest on MonkeySim
 
