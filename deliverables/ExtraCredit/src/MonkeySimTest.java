@@ -74,7 +74,7 @@ public class MonkeySimTest {
 	 * Postconditions: Method returns before timeout of 100 ms.
 	 */
 	@Test(timeout=100)
-	public void testMain1000000() throws InfiniteLoopException {
+	public void testMainPerformance() throws InfiniteLoopException {
 		MonkeySim.verbose = false;
 		
 		MonkeySim.main(new String[] { Integer.toString(1000000) });
