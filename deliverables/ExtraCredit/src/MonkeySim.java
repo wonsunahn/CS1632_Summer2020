@@ -170,10 +170,14 @@ public class MonkeySim {
 			Monkey m2 = ml.get(n);
 			Banana b = m.throwBananaFrom();
 			m2.throwBananaTo(b);
-			String s = stringifyResults(mw.getRounds(), m, m2);
-			System.out.println(s);
+			if (verbose) {
+				String s = stringifyResults(mw.getRounds(), m, m2);
+				System.out.println(s);
+			}
 		}
-		System.out.println("First monkey has the banana!");
+		if (verbose) {
+			System.out.println("First monkey has the banana!");
+		}
 		return mw.getRounds();
 	}
 
