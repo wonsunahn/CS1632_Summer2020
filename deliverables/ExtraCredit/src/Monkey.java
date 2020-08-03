@@ -26,12 +26,8 @@ public class Monkey {
 	 * @return id of monkey
 	 */
 
-	public int getId() throws NoIdException {
-		if (id < 0) {
-			throw new NoIdException();
-		} else {
-			return id;
-		}
+	public int getId() {
+		return id;
 	}
 
 	/**
